@@ -1,14 +1,14 @@
 //
-//  MinbacVC.swift
+//  GoodVC.swift
 //  Term Project Jeju
 //
-//  Created by KPUGAME on 18/05/2019.
+//  Created by KPUGAME on 24/05/2019.
 //  Copyright © 2019 KPUGAME. All rights reserved.
 //
 
 import UIKit
 
-class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
+class FoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tbData : UITableView!
     
@@ -20,9 +20,13 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
     var elements = NSMutableDictionary()
     var element = NSString()
+
+    var url : String! = "http://data.jeju.go.kr/rest/besteating/getEatingList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=1000"
     
-    var url : String! = "http://openapi.jejusi.go.kr/rest/minbakinfoservice/getMinbakInfoList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageNo=1&numOfRows=10"
-    var parameters : [String] = ["addr", "mapx", "mapy", "name", "room"]
+    var parameters : [String] =
+        ["adres"/*주소*/, "bizcnd"/*업태*/, "dataTitle"/*업소명*/, "la",/*위도*/
+        "lo"/*경도*/, "menu"/*메뉴*/, "regData"/*작성일*/, "telNo"/*전화번호*/]
+    
     var datas : [String: NSMutableString] = [:]
     
     override func viewDidLoad() {
@@ -98,14 +102,17 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let text1 = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "name") as! NSString as String
+        let adres = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "adres") as! NSString as String
+        let dataTitle = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "dataTitle") as! NSString as String
         
-        let text2 = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr") as! NSString as String
+        cell.textLabel?.text = adres
         
-        cell.textLabel?.text = text1
-        
-        cell.detailTextLabel?.text = text2
+        cell.detailTextLabel?.text = dataTitle
         
         return cell // as UITableViewCell
     }
 }
+
+//  "adres"/*주소*/,          "bizcnd"/*업태*/,
+//  "dataTitle"/*업소명*/,     "la",/*위도*/
+//  "lo"/*경도*/,             "menu"/*메뉴*/,       "regData"/*작성일*/,   "telNo"/*전화번호*/]

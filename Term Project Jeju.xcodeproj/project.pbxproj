@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A117F3AD228F1FA7009822A0 /* MinbakVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117F3AC228F1FA7009822A0 /* MinbakVC.swift */; };
+		A11896492297B80000F80FCE /* GoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11896482297B7FF00F80FCE /* GoodVC.swift */; };
+		A11896572297E53100F80FCE /* FestivalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11896562297E53100F80FCE /* FestivalVC.swift */; };
+		A11896592297EB9300F80FCE /* FoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11896582297EB9300F80FCE /* FoodVC.swift */; };
+		A118965B2297F61B00F80FCE /* PharmacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118965A2297F61B00F80FCE /* PharmacyVC.swift */; };
 		A121D769228D214400A8081E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D768228D214400A8081E /* AppDelegate.swift */; };
 		A121D76B228D214400A8081E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D76A228D214400A8081E /* ViewController.swift */; };
 		A121D76E228D214400A8081E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A121D76C228D214400A8081E /* Main.storyboard */; };
@@ -18,6 +22,10 @@
 
 /* Begin PBXFileReference section */
 		A117F3AC228F1FA7009822A0 /* MinbakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinbakVC.swift; sourceTree = "<group>"; };
+		A11896482297B7FF00F80FCE /* GoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodVC.swift; sourceTree = "<group>"; };
+		A11896562297E53100F80FCE /* FestivalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalVC.swift; sourceTree = "<group>"; };
+		A11896582297EB9300F80FCE /* FoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodVC.swift; sourceTree = "<group>"; };
+		A118965A2297F61B00F80FCE /* PharmacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyVC.swift; sourceTree = "<group>"; };
 		A121D765228D214400A8081E /* Term Project Jeju.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Project Jeju.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A121D768228D214400A8081E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A121D76A228D214400A8081E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +74,10 @@
 				A121D774228D214500A8081E /* Info.plist */,
 				A121D77A228D21D800A8081E /* PageViewController.swift */,
 				A117F3AC228F1FA7009822A0 /* MinbakVC.swift */,
+				A11896482297B7FF00F80FCE /* GoodVC.swift */,
+				A11896562297E53100F80FCE /* FestivalVC.swift */,
+				A11896582297EB9300F80FCE /* FoodVC.swift */,
+				A118965A2297F61B00F80FCE /* PharmacyVC.swift */,
 			);
 			path = "Term Project Jeju";
 			sourceTree = "<group>";
@@ -143,7 +155,11 @@
 			files = (
 				A121D77B228D21D800A8081E /* PageViewController.swift in Sources */,
 				A121D76B228D214400A8081E /* ViewController.swift in Sources */,
+				A11896592297EB9300F80FCE /* FoodVC.swift in Sources */,
 				A121D769228D214400A8081E /* AppDelegate.swift in Sources */,
+				A11896492297B80000F80FCE /* GoodVC.swift in Sources */,
+				A11896572297E53100F80FCE /* FestivalVC.swift in Sources */,
+				A118965B2297F61B00F80FCE /* PharmacyVC.swift in Sources */,
 				A117F3AD228F1FA7009822A0 /* MinbakVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
