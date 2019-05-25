@@ -514,7 +514,11 @@
                                 <segue destination="eob-xL-SZQ" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="nhh-Nv-GMv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DLW-Bg-alw"/>
+                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DLW-Bg-alw">
+                            <connections>
+                                <segue destination="tsk-J2-5Jc" kind="show" identifier="segueToMapView" id="3RS-7t-IaR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tbData" destination="SHn-QV-b2j" id="J2r-5G-OiX"/>
@@ -674,6 +678,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZh-as-Xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4462" y="3051"/>
+        </scene>
+        <!--심야약국 지도-->
+        <scene sceneID="xZJ-OX-WyN">
+            <objects>
+                <viewController title="심야약국 지도" id="tsk-J2-5Jc" customClass="PharmacyMapVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clI-zk-gXg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TiI-mG-RgO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TiI-mG-RgO" firstAttribute="trailing" secondItem="qSV-cl-gcH" secondAttribute="trailing" id="Bzl-qO-q3h"/>
+                            <constraint firstItem="TiI-mG-RgO" firstAttribute="leading" secondItem="qSV-cl-gcH" secondAttribute="leading" id="F3b-oK-gRB"/>
+                            <constraint firstItem="TiI-mG-RgO" firstAttribute="top" secondItem="qSV-cl-gcH" secondAttribute="top" id="QVZ-Eg-Zu3"/>
+                            <constraint firstItem="TiI-mG-RgO" firstAttribute="bottom" secondItem="qSV-cl-gcH" secondAttribute="bottom" id="uU3-Gn-2aH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qSV-cl-gcH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZvT-wk-ats"/>
+                    <connections>
+                        <outlet property="mapView" destination="TiI-mG-RgO" id="3es-b6-uEW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="89o-r4-qtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5401" y="3051"/>
         </scene>
     </scenes>
 </document>

@@ -10,21 +10,19 @@ import Foundation
 import MapKit
 import Contacts
 
-class Good : NSObject, MKAnnotation
+class Pharmacy : NSObject, MKAnnotation
 {
     let title : String? // 무조건 이 이름!
     let addr : String
     let coordinate : CLLocationCoordinate2D
-    let discipline : String
     
     // MKAnnotation 프로토콜을 구현하기 위해서 title, subtitle, coordinate 등 필요
     // 사용자가 핀을 선택할 때 title/subtitle을 표시
-    init(title: String, addr : String, discipline : String, coordinate : CLLocationCoordinate2D)
+    init(title: String, addr : String, coordinate : CLLocationCoordinate2D)
     {
         self.title = title
         self.addr = addr
         self.coordinate = coordinate
-        self.discipline = discipline
         
         super.init()
     }
@@ -46,26 +44,5 @@ class Good : NSObject, MKAnnotation
         mapItem.name = self.title
         
         return mapItem
-    }
-    
-    var markerTintColor : UIColor
-    {
-        switch discipline
-        {
-        case "한식" :
-            return .red
-        case "목욕업":
-            return .cyan
-        case "세탁업":
-            return .blue
-        case "이미용업":
-            return .purple
-        case "중식":
-            return .green
-        case "일식":
-            return .orange
-        default:
-            return .magenta
-        }
     }
 }

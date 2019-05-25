@@ -25,7 +25,7 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var Foods : [Food] = []
+    var foods : [Food] = []
     
     func loadInitData()
     {
@@ -42,7 +42,7 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         
             let food = Food(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
             
-            Foods.append(food)
+            foods.append(food)
         }
         
     }
@@ -64,7 +64,7 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         
         loadInitData()
-        mapView.addAnnotations(Foods)
+        mapView.addAnnotations(foods)
         // Do any additional setup after loading the view.
     }
     

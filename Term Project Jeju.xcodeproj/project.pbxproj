@@ -19,6 +19,8 @@
 		A118A177229941F900A38B40 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A176229941F900A38B40 /* FirstVC.swift */; };
 		A118A17E2299575600A38B40 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A17C2299575600A38B40 /* Food.swift */; };
 		A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A17D2299575600A38B40 /* FoodMapVc.swift */; };
+		A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A18022995B5200A38B40 /* PharmacyMapVC.swift */; };
+		A118A18322995B5200A38B40 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A18122995B5200A38B40 /* Pharmacy.swift */; };
 		A121D769228D214400A8081E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D768228D214400A8081E /* AppDelegate.swift */; };
 		A121D76B228D214400A8081E /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D76A228D214400A8081E /* SecondVC.swift */; };
 		A121D76E228D214400A8081E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A121D76C228D214400A8081E /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		A118A176229941F900A38B40 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		A118A17C2299575600A38B40 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		A118A17D2299575600A38B40 /* FoodMapVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMapVc.swift; sourceTree = "<group>"; };
+		A118A18022995B5200A38B40 /* PharmacyMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyMapVC.swift; sourceTree = "<group>"; };
+		A118A18122995B5200A38B40 /* Pharmacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		A121D765228D214400A8081E /* Term Project Jeju.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Project Jeju.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A121D768228D214400A8081E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A121D76A228D214400A8081E /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		A118A17B229952F000A38B40 /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
+				A118A18122995B5200A38B40 /* Pharmacy.swift */,
+				A118A18022995B5200A38B40 /* PharmacyMapVC.swift */,
 				A118965A2297F61B00F80FCE /* PharmacyVC.swift */,
 			);
 			path = Pharmacy;
@@ -234,12 +240,14 @@
 				A118966022982D5E00F80FCE /* Minbak.swift in Sources */,
 				A121D76B228D214400A8081E /* SecondVC.swift in Sources */,
 				A11896592297EB9300F80FCE /* FoodVC.swift in Sources */,
+				A118A18322995B5200A38B40 /* Pharmacy.swift in Sources */,
 				A121D769228D214400A8081E /* AppDelegate.swift in Sources */,
 				A11896492297B80000F80FCE /* GoodVC.swift in Sources */,
 				A118A177229941F900A38B40 /* FirstVC.swift in Sources */,
 				A118A17E2299575600A38B40 /* Food.swift in Sources */,
 				A118A174229940C900A38B40 /* Good.swift in Sources */,
 				A11896572297E53100F80FCE /* FestivalVC.swift in Sources */,
+				A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */,
 				A118965B2297F61B00F80FCE /* PharmacyVC.swift in Sources */,
 				A117F3AD228F1FA7009822A0 /* MinbakVC.swift in Sources */,
 				A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */,

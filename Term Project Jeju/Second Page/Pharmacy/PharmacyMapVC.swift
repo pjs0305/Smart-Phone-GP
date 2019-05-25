@@ -9,14 +9,14 @@
 import UIKit
 import MapKit
 
-class GoodMapVC: UIViewController, MKMapViewDelegate {
+class PharmacyMapVC: UIViewController, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
     
     var posts = NSMutableArray()
     var initLocation : CLLocation!
     
-    let regionRadius : CLLocationDistance = 10000
+    let regionRadius : CLLocationDistance = 5000
     
     func centerMapOnLocation(location: CLLocation)
     {
@@ -25,38 +25,32 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var Goods : [Good] = []
+    var pharmacys : [Pharmacy] = []
     
     func loadInitData()
     {
         for post in posts
         {
-            let mapx = (post as AnyObject).value(forKey: "posy") as! NSString as String
-            let mapy = (post as AnyObject).value(forKey: "posx") as! NSString as String
-            let area = (post as AnyObject).value(forKey: "area") as! NSString as String
-            let adres = (post as AnyObject).value(forKey: "adres") as! NSString as String
-            let addr = area + " " + adres
-            let discipline = (post as AnyObject).value(forKey: "induty") as! NSString as String
-            
+            let la = (post as AnyObject).value(forKey: "la") as! NSString as String
+            let lo = (post as AnyObject).value(forKey: "lo") as! NSString as String
+            let addr = (post as AnyObject).value(forKey: "adres") as! NSString as String
             let dataTitle = (post as AnyObject).value(forKey: "dataTitle") as! NSString as String
-            let lat = (mapx as NSString).doubleValue
-            let lon = (mapy as NSString).doubleValue
+            let lat = (la as NSString).doubleValue
+            let lon = (lo as NSString).doubleValue
         
-            let minbak = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            let pharmacy = Pharmacy(title: dataTitle, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
             
-            Goods.append(minbak)
+            pharmacys.append(pharmacy)
         }
         
     }
     
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
-        let location = view.annotation as! Good
+        let location = view.annotation as! Pharmacy
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         location.mapItem().openInMaps(launchOptions: launchOptions)
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +60,14 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         
         loadInitData()
-        mapView.addAnnotations(Goods)
+        mapView.addAnnotations(pharmacys)
         // Do any additional setup after loading the view.
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
     {
         // 2. 이 주석(annotation)이 Hospital 객체인지 확인! 그렇지 않으면 nil 지도 뷰에서 기본 주석 뷰를 사용하도록 돌아감.
-        guard let annotation = annotation as? Good else { return nil }
+        guard let annotation = annotation as? Pharmacy else { return nil }
         
         // 3. 마커가 나타나게 MKMarkerAnnotationView를 만듦.
         //    이 자습서의 뒷부분에서는 MKAnnotationView 대신 이미지를 표시하는 객체를 만듦.
@@ -95,10 +89,6 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x : -5, y : 5)
             view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
-            
-            // 2. pin icon을 각 discipline의 첫글자로 설정
-            view.markerTintColor = annotation.markerTintColor
-            view.glyphText = String(annotation.discipline.first!)
         }
         
         return view

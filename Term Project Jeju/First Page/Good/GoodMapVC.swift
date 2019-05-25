@@ -25,7 +25,7 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var Goods : [Good] = []
+    var goods : [Good] = []
     
     func loadInitData()
     {
@@ -42,9 +42,9 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
             let lat = (mapx as NSString).doubleValue
             let lon = (mapy as NSString).doubleValue
         
-            let minbak = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            let good = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
             
-            Goods.append(minbak)
+            goods.append(good)
         }
         
     }
@@ -66,7 +66,7 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         
         loadInitData()
-        mapView.addAnnotations(Goods)
+        mapView.addAnnotations(goods)
         // Do any additional setup after loading the view.
     }
     

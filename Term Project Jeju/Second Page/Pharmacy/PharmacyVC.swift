@@ -112,6 +112,22 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         
         return cell // as UITableViewCell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToMapView"
+        {
+            if let mapVC = segue.destination as? PharmacyMapVC
+            {
+                let la = (posts.object(at: 0) as AnyObject).value(forKey: "la") as! NSString as String
+                let lo = (posts.object(at: 0) as AnyObject).value(forKey: "lo") as! NSString as String
+                let lat = (la as NSString).doubleValue
+                let lon = (lo as NSString).doubleValue
+                
+                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.posts = posts
+            }
+        }
+    }
 }
 
 //  "adres"/*주소*/,      "dataTitle"/*업소명*/,     "la"/*위도*/,         "lo"/*경도*/,
