@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     
@@ -107,5 +108,21 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = text2
         
         return cell // as UITableViewCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToMapView"
+        {
+            if let mapVC = segue.destination as? MinbakMapVC
+            {
+                let mapx = (posts.object(at: 0) as AnyObject).value(forKey: "mapx") as! NSString as String
+                let mapy = (posts.object(at: 0) as AnyObject).value(forKey: "mapy") as! NSString as String
+                let lat = (mapx as NSString).doubleValue
+                let lon = (mapy as NSString).doubleValue
+                
+                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.posts = posts
+            }
+        }
     }
 }

@@ -69,12 +69,15 @@
                         <viewLayoutGuide key="safeArea" id="yCO-KH-ca4"/>
                     </view>
                     <navigationItem key="navigationItem" title="농어촌 민박집 정보" id="evC-ml-038">
-                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="7x7-uH-XQh">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Di-PW-hKt">
-                                <rect key="frame" x="-23" y="-15" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="지도 보기"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="uhK-qx-W4i">
+                            <connections>
+                                <segue destination="Te2-uX-IJB" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Pn0-Kc-jpJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="Xq9-e5-OV3">
+                            <connections>
+                                <segue destination="KbS-v3-ViT" kind="show" identifier="segueToMapView" id="YwJ-vD-1Dn"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -82,13 +85,44 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypp-1S-6l3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Te2-uX-IJB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="996" y="2292"/>
+        </scene>
+        <!--농어촌 민박집 지도-->
+        <scene sceneID="PKi-w3-4Ob">
+            <objects>
+                <viewController title="농어촌 민박집 지도" id="KbS-v3-ViT" customClass="MinbakMapVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UlW-dR-4sh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="55F-Kh-eEy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="55F-Kh-eEy" firstAttribute="leading" secondItem="nr9-RD-MwS" secondAttribute="leading" id="5rt-HY-oDU"/>
+                            <constraint firstItem="55F-Kh-eEy" firstAttribute="trailing" secondItem="nr9-RD-MwS" secondAttribute="trailing" id="O7y-Sl-Lg3"/>
+                            <constraint firstItem="55F-Kh-eEy" firstAttribute="top" secondItem="nr9-RD-MwS" secondAttribute="top" id="toq-7f-7Ir"/>
+                            <constraint firstItem="55F-Kh-eEy" firstAttribute="bottom" secondItem="nr9-RD-MwS" secondAttribute="bottom" id="tuc-DN-DIx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nr9-RD-MwS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VoM-le-sfS"/>
+                    <connections>
+                        <outlet property="mapView" destination="55F-Kh-eEy" id="6ce-H0-2p7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeU-FV-n5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="3050.8245877061472"/>
         </scene>
         <!--PageOne-->
         <scene sceneID="YHU-pU-dWW">
             <objects>
-                <viewController storyboardIdentifier="PageOne" title="PageOne" id="Sfj-I8-tt6" customClass="ViewController" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageOne" title="PageOne" id="Sfj-I8-tt6" customClass="FirstVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wsB-uE-yOh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +155,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="착한업소 정보"/>
                                 <connections>
-                                    <segue destination="xkb-ai-HuG" kind="show" id="mib-wW-qyC"/>
+                                    <segue destination="7uR-Vv-aTC" kind="show" id="mib-wW-qyC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -259,13 +293,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oL5-kI-8Rd"/>
                     </view>
+                    <navigationItem key="navigationItem" title="착한 업소 정보" id="Ofj-FE-Q4w">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="dte-Ut-NTz"/>
+                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DbM-sY-MA2">
+                            <connections>
+                                <segue destination="hKH-TH-MvS" kind="show" identifier="segueToMapView" id="lwa-q1-VtS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tbData" destination="nds-sZ-Dkt" id="KNw-H8-Nbw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rkg-hN-ocz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="1539"/>
+            <point key="canvasLocation" x="1945" y="2292"/>
         </scene>
         <!--축제/행사 정보-->
         <scene sceneID="B85-4d-KLI">
@@ -321,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ukp-EH-K1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2990" y="1539"/>
+            <point key="canvasLocation" x="3928.8000000000002" y="1538.6806596701651"/>
         </scene>
         <!--모범음식점 정보-->
         <scene sceneID="imM-8S-M9i">
@@ -377,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4k-SM-Aa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3998" y="1539"/>
+            <point key="canvasLocation" x="4936.8000000000002" y="1538.6806596701651"/>
         </scene>
         <!--심야약국 정보-->
         <scene sceneID="Gch-rd-rBL">
@@ -433,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3r-8J-yL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5895.1999999999998" y="1538.6806596701651"/>
+            <point key="canvasLocation" x="6834.3999999999996" y="1538.6806596701651"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ts5-vc-OBC">
@@ -452,6 +494,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCV-Eo-KM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="1538.6806596701651"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FaS-gZ-kjb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7uR-Vv-aTC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e2X-VI-ZlS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xkb-ai-HuG" kind="relationship" relationship="rootViewController" id="gsE-Fz-HhR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y14-tm-g3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1944.8" y="1538.6806596701651"/>
+        </scene>
+        <!--착한 업소 지도-->
+        <scene sceneID="o35-II-hSf">
+            <objects>
+                <viewController title="착한 업소 지도" id="hKH-TH-MvS" customClass="GoodMapVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="18D-qD-L4Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LD2-9o-50c">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LD2-9o-50c" firstAttribute="bottom" secondItem="fjD-yw-RsK" secondAttribute="bottom" id="3Ol-Yn-Z4F"/>
+                            <constraint firstItem="LD2-9o-50c" firstAttribute="leading" secondItem="fjD-yw-RsK" secondAttribute="leading" id="Z9l-QW-lwe"/>
+                            <constraint firstItem="LD2-9o-50c" firstAttribute="top" secondItem="fjD-yw-RsK" secondAttribute="top" id="dCb-ZS-6vN"/>
+                            <constraint firstItem="LD2-9o-50c" firstAttribute="trailing" secondItem="fjD-yw-RsK" secondAttribute="trailing" id="jUC-8O-5Y3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fjD-yw-RsK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hq4-kH-6vH"/>
+                    <connections>
+                        <outlet property="mapView" destination="LD2-9o-50c" id="hIQ-fM-2sI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oV0-A1-yUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="3051"/>
         </scene>
     </scenes>
 </document>

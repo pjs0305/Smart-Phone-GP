@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class FoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     
@@ -21,7 +22,7 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var elements = NSMutableDictionary()
     var element = NSString()
 
-    var url : String! = "http://data.jeju.go.kr/rest/goodshop/getGoodShopList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=10"
+    var url : String! = "http://data.jeju.go.kr/rest/goodshop/getGoodShopList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=200"
     
     var parameters : [String] =
         ["area"/*시*/, "adres"/*주소*/, "appnPrdlstPc"/*지정품목 및 가격*/, "bsnTime"/*영업 시간*/,
@@ -115,6 +116,22 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = induty
         
         return cell // as UITableViewCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToMapView"
+        {
+            if let mapVC = segue.destination as? GoodMapVC
+            {
+                let posy = (posts.object(at: 0) as AnyObject).value(forKey: "posy") as! NSString as String
+                let posx = (posts.object(at: 0) as AnyObject).value(forKey: "posx") as! NSString as String
+                let lat = (posy as NSString).doubleValue
+                let lon = (posx as NSString).doubleValue
+                
+                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.posts = posts
+            }
+        }
     }
 }
 //    "area"/*시*/,          "adres"/*주소*/,          "appnPrdlstPc"/*지정품목 및 가격*/,    "bsnTime"/*영업 시간*/,
