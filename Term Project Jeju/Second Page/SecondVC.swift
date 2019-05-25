@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SecondVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func doneToPickerViewController(segue:UIStoryboardSegue)
+    {
+        
+    }
 }
 

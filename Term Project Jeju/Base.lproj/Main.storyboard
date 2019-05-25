@@ -87,7 +87,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypp-1S-6l3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Te2-uX-IJB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="996" y="2292"/>
+            <point key="canvasLocation" x="1598" y="2292"/>
         </scene>
         <!--농어촌 민박집 지도-->
         <scene sceneID="PKi-w3-4Ob">
@@ -117,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeU-FV-n5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="3050.8245877061472"/>
+            <point key="canvasLocation" x="1598" y="3051"/>
         </scene>
         <!--PageOne-->
         <scene sceneID="YHU-pU-dWW">
@@ -128,31 +128,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-Lt-D3G">
-                                <rect key="frame" x="46" y="200" width="99" height="30"/>
+                                <rect key="frame" x="100" y="170" width="175" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="Z29-U9-Ew7"/>
+                                    <constraint firstAttribute="height" constant="50" id="dKc-eT-8qH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="농어촌 민박 정보"/>
                                 <connections>
                                     <segue destination="Ubc-wh-v1W" kind="show" id="8C8-vl-DZm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj6-WY-dea">
-                                <rect key="frame" x="44" y="419" width="173" height="48"/>
+                                <rect key="frame" x="100" y="466" width="175" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CBc-Py-OYd"/>
+                                    <constraint firstAttribute="width" constant="175" id="dgo-sH-cUT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="축제/행사 정보"/>
                                 <connections>
-                                    <segue destination="XRU-fE-UW0" kind="show" id="oLh-cb-N4d"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ji-TZ-ef8">
-                                <rect key="frame" x="142" y="419" width="189" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="모범음식점 정보"/>
-                                <connections>
-                                    <segue destination="nxn-Pt-HEp" kind="show" id="xKb-7E-jGV"/>
+                                    <segue destination="9r8-k0-GUx" kind="show" id="oLh-cb-N4d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-yJ-fKe">
-                                <rect key="frame" x="167" y="200" width="163" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="100" y="308" width="175" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="94Z-UI-Tk8"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="175" id="R4R-WL-D74"/>
+                                    <constraint firstAttribute="width" constant="175" id="f7U-oW-UPB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="opB-gA-nNa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="sOO-DO-v03"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="sb1-e3-c3E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="착한업소 정보"/>
                                 <connections>
                                     <segue destination="7uR-Vv-aTC" kind="show" id="mib-wW-qyC"/>
@@ -161,14 +170,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="P6Q-yJ-fKe" secondAttribute="trailing" constant="45" id="2AX-6N-OKG"/>
-                            <constraint firstItem="hj6-WY-dea" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="44" id="5KE-LV-fqy"/>
-                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="c38-6w-3eL" secondAttribute="top" constant="180" id="7wy-Fk-vki"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="7ji-TZ-ef8" secondAttribute="trailing" constant="44" id="DYM-h3-rXb"/>
-                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="top" secondItem="c38-6w-3eL" secondAttribute="top" constant="180" id="JLZ-KY-QXL"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="bottom" secondItem="7ji-TZ-ef8" secondAttribute="bottom" constant="200" id="dPe-hs-w73"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="bottom" secondItem="hj6-WY-dea" secondAttribute="bottom" constant="200" id="pLz-US-6QI"/>
-                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="46" id="wRm-gu-FdG"/>
+                            <constraint firstItem="hj6-WY-dea" firstAttribute="top" secondItem="P6Q-yJ-fKe" secondAttribute="bottom" constant="108" id="2Xf-qx-Nc3"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="8RX-Qo-5s6"/>
+                            <constraint firstItem="hj6-WY-dea" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="BdG-g2-yev"/>
+                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="top" secondItem="c38-6w-3eL" secondAttribute="top" constant="150" id="HFE-q4-Swv"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="P6Q-yJ-fKe" secondAttribute="trailing" constant="100" id="NFk-wN-wRE"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="xDp-Lt-D3G" secondAttribute="trailing" constant="100" id="Npw-6S-pon"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="bottom" secondItem="hj6-WY-dea" secondAttribute="bottom" constant="150" id="P8j-Xi-0kj"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="88" id="Uae-Qj-CcI"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="hj6-WY-dea" secondAttribute="trailing" constant="100" id="i5M-Ji-aID"/>
+                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="l77-Q3-NhG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c38-6w-3eL"/>
                     </view>
@@ -180,45 +191,47 @@
         <!--PageTwo-->
         <scene sceneID="DfJ-pX-BWn">
             <objects>
-                <viewController storyboardIdentifier="PageTwo" title="PageTwo" id="hQG-8v-sZh" customClass="ViewController" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageTwo" title="PageTwo" id="hQG-8v-sZh" customClass="SecondVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILu-4I-F3D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-11-Zeg">
+                                <rect key="frame" x="100" y="170" width="175" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2o5-So-Mym"/>
+                                    <constraint firstAttribute="width" constant="175" id="gTa-Sl-VO6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="모범 음식점 정보"/>
+                                <connections>
+                                    <segue destination="nxn-Pt-HEp" kind="show" id="lLd-Vn-7Dy"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-qG-L7I">
-                                <rect key="frame" x="44" y="200" width="156" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="100" y="308" width="175" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="TBA-dP-rIa"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Xcg-lU-Gvs"/>
+                                    <constraint firstAttribute="height" constant="50" id="aBO-bp-YxP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="s0s-nf-kee"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="심야약국정보"/>
                                 <connections>
                                     <segue destination="bez-a7-fOh" kind="show" id="H0G-U0-GMP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-11-Zeg">
-                                <rect key="frame" x="260" y="200" width="71" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="정보6"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xz-EE-1eF">
-                                <rect key="frame" x="45" y="419" width="69" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="정보7"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLv-88-MyF">
-                                <rect key="frame" x="260" y="419" width="71" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="정보8"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CYq-qG-L7I" firstAttribute="top" secondItem="vy2-kI-Xd8" secondAttribute="top" constant="180" id="2eO-XS-eAY"/>
-                            <constraint firstItem="CYq-qG-L7I" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="44" id="PQ6-IH-UT1"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="t5l-11-Zeg" secondAttribute="trailing" constant="44" id="YTv-34-LVV"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="kLv-88-MyF" secondAttribute="trailing" constant="44" id="bMD-aU-VH0"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="bottom" secondItem="kLv-88-MyF" secondAttribute="bottom" constant="200" id="ceO-kP-TwJ"/>
-                            <constraint firstItem="9xz-EE-1eF" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="45" id="gaY-AB-pH1"/>
-                            <constraint firstItem="t5l-11-Zeg" firstAttribute="top" secondItem="vy2-kI-Xd8" secondAttribute="top" constant="180" id="kOX-Hy-LTW"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="bottom" secondItem="9xz-EE-1eF" secondAttribute="bottom" constant="200" id="ngn-dk-B5z"/>
+                            <constraint firstItem="CYq-qG-L7I" firstAttribute="top" secondItem="t5l-11-Zeg" secondAttribute="bottom" constant="88" id="0KL-c1-HwC"/>
+                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="CYq-qG-L7I" secondAttribute="trailing" constant="100" id="W07-M8-eRy"/>
+                            <constraint firstItem="t5l-11-Zeg" firstAttribute="top" secondItem="vy2-kI-Xd8" secondAttribute="top" constant="150" id="eWa-Ul-G1H"/>
+                            <constraint firstItem="t5l-11-Zeg" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="100" id="eeu-rD-IDv"/>
+                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="t5l-11-Zeg" secondAttribute="trailing" constant="100" id="fju-Bs-qMt"/>
+                            <constraint firstItem="CYq-qG-L7I" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="100" id="rYK-pX-Hjw"/>
+                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="bottom" secondItem="CYq-qG-L7I" secondAttribute="bottom" constant="308" id="xb1-Zx-eR9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vy2-kI-Xd8"/>
                     </view>
@@ -294,7 +307,11 @@
                         <viewLayoutGuide key="safeArea" id="oL5-kI-8Rd"/>
                     </view>
                     <navigationItem key="navigationItem" title="착한 업소 정보" id="Ofj-FE-Q4w">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="dte-Ut-NTz"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="dte-Ut-NTz">
+                            <connections>
+                                <segue destination="6v3-0E-A5y" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="f67-HD-Tf5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DbM-sY-MA2">
                             <connections>
                                 <segue destination="hKH-TH-MvS" kind="show" identifier="segueToMapView" id="lwa-q1-VtS"/>
@@ -306,8 +323,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rkg-hN-ocz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6v3-0E-A5y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="2292"/>
+            <point key="canvasLocation" x="2558" y="2292"/>
         </scene>
         <!--축제/행사 정보-->
         <scene sceneID="B85-4d-KLI">
@@ -357,13 +375,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tZz-5H-QHO"/>
                     </view>
+                    <navigationItem key="navigationItem" title="축제/행사 정보" id="6HW-ji-4fT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="le1-U3-Jrh">
+                            <connections>
+                                <segue destination="3li-KY-e2C" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Ma6-So-20p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tbData" destination="OLl-Ie-3kH" id="2bE-p7-zdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ukp-EH-K1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3li-KY-e2C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3928.8000000000002" y="1538.6806596701651"/>
+            <point key="canvasLocation" x="3532" y="2292"/>
         </scene>
         <!--모범음식점 정보-->
         <scene sceneID="imM-8S-M9i">
@@ -419,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4k-SM-Aa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4936.8000000000002" y="1538.6806596701651"/>
+            <point key="canvasLocation" x="4482" y="1539"/>
         </scene>
         <!--심야약국 정보-->
         <scene sceneID="Gch-rd-rBL">
@@ -475,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3r-8J-yL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6834.3999999999996" y="1538.6806596701651"/>
+            <point key="canvasLocation" x="5401" y="1539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ts5-vc-OBC">
@@ -493,7 +519,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCV-Eo-KM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="1538.6806596701651"/>
+            <point key="canvasLocation" x="1598" y="1539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FaS-gZ-kjb">
@@ -511,7 +537,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y14-tm-g3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944.8" y="1538.6806596701651"/>
+            <point key="canvasLocation" x="2558" y="1539"/>
         </scene>
         <!--착한 업소 지도-->
         <scene sceneID="o35-II-hSf">
@@ -541,7 +567,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oV0-A1-yUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="3051"/>
+            <point key="canvasLocation" x="2558" y="3051"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="saz-KX-ee2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9r8-k0-GUx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JcV-TW-kXU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XRU-fE-UW0" kind="relationship" relationship="rootViewController" id="ifi-sK-8Wi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tE1-XZ-IYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3532" y="1539"/>
         </scene>
     </scenes>
 </document>
