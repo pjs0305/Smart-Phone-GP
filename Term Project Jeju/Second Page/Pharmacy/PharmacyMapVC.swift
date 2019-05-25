@@ -16,7 +16,7 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
     var posts = NSMutableArray()
     var initLocation : CLLocation!
     
-    let regionRadius : CLLocationDistance = 5000
+    let regionRadius : CLLocationDistance = 10000
     
     func centerMapOnLocation(location: CLLocation)
     {

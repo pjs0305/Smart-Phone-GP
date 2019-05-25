@@ -22,7 +22,7 @@ class FoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var elements = NSMutableDictionary()
     var element = NSString()
 
-    var url : String! = "http://data.jeju.go.kr/rest/besteating/getEatingList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=1000"
+    var url : String! = "http://data.jeju.go.kr/rest/besteating/getEatingList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=400"
     
     var parameters : [String] =
         ["adres"/*주소*/, "bizcnd"/*업태*/, "dataTitle"/*업소명*/, "la",/*위도*/
@@ -111,6 +111,22 @@ class FoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = dataTitle
         
         return cell // as UITableViewCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToMapView"
+        {
+            if let mapVC = segue.destination as? FoodMapVC
+            {
+                let la = (posts.object(at: 0) as AnyObject).value(forKey: "la") as! NSString as String
+                let lo = (posts.object(at: 0) as AnyObject).value(forKey: "lo") as! NSString as String
+                let lat = (la as NSString).doubleValue
+                let lon = (lo as NSString).doubleValue
+                
+                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.posts = posts
+            }
+        }
     }
 }
 

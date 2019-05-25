@@ -205,7 +205,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="모범 음식점 정보"/>
                                 <connections>
-                                    <segue destination="nxn-Pt-HEp" kind="show" id="lLd-Vn-7Dy"/>
+                                    <segue destination="zT0-q0-gLN" kind="show" id="lLd-Vn-7Dy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-qG-L7I">
@@ -219,7 +219,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="심야약국정보"/>
                                 <connections>
-                                    <segue destination="bez-a7-fOh" kind="show" id="H0G-U0-GMP"/>
+                                    <segue destination="aGJ-m9-PSA" kind="show" id="H0G-U0-GMP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -439,13 +439,26 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="isf-JI-qgT"/>
                     </view>
+                    <navigationItem key="navigationItem" title="모범 음식점 정보" id="dYT-7B-TSC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="v0m-Te-9cb">
+                            <connections>
+                                <segue destination="dpz-tk-O0k" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="UlT-rY-Dtx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="IRB-ch-wvT">
+                            <connections>
+                                <segue destination="nDW-eD-5oM" kind="show" identifier="segueToMapView" id="7Ww-8K-qgN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tbData" destination="tyo-Fz-OCa" id="VQ8-ae-Olg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4k-SM-Aa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dpz-tk-O0k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4482" y="1539"/>
+            <point key="canvasLocation" x="4462" y="2292"/>
         </scene>
         <!--심야약국 정보-->
         <scene sceneID="Gch-rd-rBL">
@@ -495,13 +508,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bHd-UN-DqK"/>
                     </view>
+                    <navigationItem key="navigationItem" title="심야약국 정보" id="7F2-y2-vpS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="V2b-gd-uL7">
+                            <connections>
+                                <segue destination="eob-xL-SZQ" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="nhh-Nv-GMv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DLW-Bg-alw"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tbData" destination="SHn-QV-b2j" id="J2r-5G-OiX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3r-8J-yL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eob-xL-SZQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5401" y="1539"/>
+            <point key="canvasLocation" x="5401" y="2292"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ts5-vc-OBC">
@@ -586,6 +608,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tE1-XZ-IYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3532" y="1539"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jgO-1d-ts3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zT0-q0-gLN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kLO-8L-vIT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nxn-Pt-HEp" kind="relationship" relationship="rootViewController" id="8n3-Rw-mZA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="551-je-5ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4463" y="1539"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Syq-O7-frz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aGJ-m9-PSA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iBW-b5-UwS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bez-a7-fOh" kind="relationship" relationship="rootViewController" id="ax5-uQ-OUZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ae9-eu-iEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5400.8000000000002" y="1538.6806596701651"/>
+        </scene>
+        <!--모범 음식집 지도-->
+        <scene sceneID="af1-Qc-ufz">
+            <objects>
+                <viewController title="모범 음식집 지도" id="nDW-eD-5oM" customClass="FoodMapVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kP2-Ua-RUN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EJR-NU-xxh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EJR-NU-xxh" firstAttribute="leading" secondItem="xfp-V2-ohA" secondAttribute="leading" id="1ch-D4-5Fv"/>
+                            <constraint firstItem="EJR-NU-xxh" firstAttribute="top" secondItem="xfp-V2-ohA" secondAttribute="top" id="Luc-Ff-NwU"/>
+                            <constraint firstItem="EJR-NU-xxh" firstAttribute="trailing" secondItem="xfp-V2-ohA" secondAttribute="trailing" id="mLL-t2-jW4"/>
+                            <constraint firstItem="EJR-NU-xxh" firstAttribute="bottom" secondItem="xfp-V2-ohA" secondAttribute="bottom" id="pHL-1C-j02"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xfp-V2-ohA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YSZ-wX-f08"/>
+                    <connections>
+                        <outlet property="mapView" destination="EJR-NU-xxh" id="V97-Tb-yJy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FZh-as-Xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4462" y="3051"/>
         </scene>
     </scenes>
 </document>
