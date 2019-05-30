@@ -16,7 +16,7 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var parser = XMLParser()
     
     // feed 데이터를 저장하는 mutable array
-    var posts = NSMutableArray()
+    static var posts = NSMutableArray()
     
     // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
     var elements = NSMutableDictionary()
@@ -39,11 +39,14 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     // parse 오브젝트 초기화하고 XMLParserDelegate로 설정하고 XML 파싱 시작
     func beginParsing()
     {
-        posts = []
+        if(PharmacyVC.posts.count == 0)
+        {
+        PharmacyVC.posts = []
         parser = XMLParser(contentsOf: (URL(string:url))!)!
         
         parser.delegate = self
         parser.parse()
+        }
         tbData!.reloadData()
     }
     
@@ -89,13 +92,13 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 }
             }
             
-            posts.add(elements)
+            PharmacyVC.posts.add(elements)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return posts.count
+        return PharmacyVC.posts.count
     }
     
     // 테이블 뷰 셀의 내용은 title과 subtitle을 posts 배열의 원소(사전)에서 title과 date에 해당하는 value로 설정
@@ -103,8 +106,8 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let adres = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "adres") as! NSString as String
-        let dataTitle = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "dataTitle") as! NSString as String
+        let adres = (PharmacyVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "adres") as! NSString as String
+        let dataTitle = (PharmacyVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "dataTitle") as! NSString as String
         
         cell.textLabel?.text = adres
         
@@ -118,13 +121,13 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         {
             if let mapVC = segue.destination as? PharmacyMapVC
             {
-                let la = (posts.object(at: 0) as AnyObject).value(forKey: "la") as! NSString as String
-                let lo = (posts.object(at: 0) as AnyObject).value(forKey: "lo") as! NSString as String
+                let la = (PharmacyVC.posts.object(at: 0) as AnyObject).value(forKey: "la") as! NSString as String
+                let lo = (PharmacyVC.posts.object(at: 0) as AnyObject).value(forKey: "lo") as! NSString as String
                 let lat = (la as NSString).doubleValue
                 let lon = (lo as NSString).doubleValue
                 
                 mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
-                mapVC.posts = posts
+                mapVC.posts = PharmacyVC.posts
             }
         }
     }

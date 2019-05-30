@@ -16,13 +16,13 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var parser = XMLParser()
     
     // feed 데이터를 저장하는 mutable array
-    var posts = NSMutableArray()
+    static var posts = NSMutableArray()
     
     // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
     var elements = NSMutableDictionary()
     var element = NSString()
 
-    var url : String! = "http://data.jeju.go.kr/rest/goodshop/getGoodShopList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=200"
+    var url : String! = "http://data.jeju.go.kr/rest/goodshop/getGoodShopList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=1000"
     
     var parameters : [String] =
         ["area"/*시*/, "adres"/*주소*/, "appnPrdlstPc"/*지정품목 및 가격*/, "bsnTime"/*영업 시간*/,
@@ -40,11 +40,15 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     // parse 오브젝트 초기화하고 XMLParserDelegate로 설정하고 XML 파싱 시작
     func beginParsing()
     {
-        posts = []
-        parser = XMLParser(contentsOf: (URL(string:url))!)!
-        
-        parser.delegate = self
-        parser.parse()
+        if(GoodVC.posts.count == 0)
+        {
+            GoodVC.posts = []
+            
+            parser = XMLParser(contentsOf: (URL(string:url))!)!
+            
+            parser.delegate = self
+            parser.parse()
+        }
         tbData!.reloadData()
     }
     
@@ -90,13 +94,13 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 }
             }
             
-            posts.add(elements)
+            GoodVC.posts.add(elements)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return posts.count
+        return GoodVC.posts.count
     }
     
     // 테이블 뷰 셀의 내용은 title과 subtitle을 posts 배열의 원소(사전)에서 title과 date에 해당하는 value로 설정
@@ -104,12 +108,12 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let area = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "area") as! NSString as String
-        let adres = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "adres") as! NSString as String
+        let area = (GoodVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "area") as! NSString as String
+        let adres = (GoodVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "adres") as! NSString as String
         
         var addr = area + " " + adres
         
-        let induty = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "induty") as! NSString as String
+        let induty = (GoodVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "induty") as! NSString as String
         
         cell.textLabel?.text = addr
         
@@ -123,13 +127,13 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         {
             if let mapVC = segue.destination as? GoodMapVC
             {
-                let posy = (posts.object(at: 0) as AnyObject).value(forKey: "posy") as! NSString as String
-                let posx = (posts.object(at: 0) as AnyObject).value(forKey: "posx") as! NSString as String
+                let posy = (GoodVC.posts.object(at: 0) as AnyObject).value(forKey: "posy") as! NSString as String
+                let posx = (GoodVC.posts.object(at: 0) as AnyObject).value(forKey: "posx") as! NSString as String
                 let lat = (posy as NSString).doubleValue
                 let lon = (posx as NSString).doubleValue
                 
                 mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
-                mapVC.posts = posts
+                mapVC.posts = GoodVC.posts
             }
         }
     }

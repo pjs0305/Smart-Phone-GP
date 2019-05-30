@@ -16,13 +16,14 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var parser = XMLParser()
     
     // feed 데이터를 저장하는 mutable array
-    var posts = NSMutableArray()
+    static var posts = NSMutableArray()
     
     // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
     var elements = NSMutableDictionary()
     var element = NSString()
     
-    var url : String! = "http://openapi.jejusi.go.kr/rest/minbakinfoservice/getMinbakInfoList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageNo=1&numOfRows=10"
+    var url : String! = "http://openapi.jejusi.go.kr/rest/minbakinfoservice/getMinbakInfoList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageNo=1&numOfRows=1000"
+    
     var parameters : [String] = ["addr", "mapx", "mapy", "name", "room"]
     var datas : [String: NSMutableString] = [:]
     
@@ -35,11 +36,14 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     // parse 오브젝트 초기화하고 XMLParserDelegate로 설정하고 XML 파싱 시작
     func beginParsing()
     {
-        posts = []
+        if(MinbakVC.posts.count == 0)
+        {
+        MinbakVC.posts = []
         parser = XMLParser(contentsOf: (URL(string:url))!)!
         
         parser.delegate = self
         parser.parse()
+        }
         tbData!.reloadData()
     }
     
@@ -85,13 +89,13 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 }
             }
             
-            posts.add(elements)
+            MinbakVC.posts.add(elements)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return posts.count
+        return MinbakVC.posts.count
     }
     
     // 테이블 뷰 셀의 내용은 title과 subtitle을 posts 배열의 원소(사전)에서 title과 date에 해당하는 value로 설정
@@ -99,9 +103,9 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let text1 = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "name") as! NSString as String
+        let text1 = (MinbakVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "name") as! NSString as String
         
-        let text2 = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr") as! NSString as String
+        let text2 = (MinbakVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr") as! NSString as String
         
         cell.textLabel?.text = text1
         
@@ -115,13 +119,13 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         {
             if let mapVC = segue.destination as? MinbakMapVC
             {
-                let mapx = (posts.object(at: 0) as AnyObject).value(forKey: "mapx") as! NSString as String
-                let mapy = (posts.object(at: 0) as AnyObject).value(forKey: "mapy") as! NSString as String
+                let mapx = (MinbakVC.posts.object(at: 0) as AnyObject).value(forKey: "mapx") as! NSString as String
+                let mapy = (MinbakVC.posts.object(at: 0) as AnyObject).value(forKey: "mapy") as! NSString as String
                 let lat = (mapx as NSString).doubleValue
                 let lon = (mapy as NSString).doubleValue
                 
                 mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
-                mapVC.posts = posts
+                mapVC.posts = MinbakVC.posts
             }
         }
     }

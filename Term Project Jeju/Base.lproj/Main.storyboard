@@ -81,7 +81,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tbData" destination="Jzb-mp-Upk" id="4kP-h9-TJB"/>
+                        <outlet property="tbData" destination="Jzb-mp-Upk" id="QmN-ys-irs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypp-1S-6l3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -136,11 +136,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="농어촌 민박 정보"/>
                                 <connections>
-                                    <segue destination="Ubc-wh-v1W" kind="show" id="8C8-vl-DZm"/>
+                                    <segue destination="Ubc-wh-v1W" kind="show" id="0ew-oO-Lsr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj6-WY-dea">
-                                <rect key="frame" x="100" y="466" width="175" height="48"/>
+                                <rect key="frame" x="100" y="467" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CBc-Py-OYd"/>
                                     <constraint firstAttribute="width" constant="175" id="dgo-sH-cUT"/>
@@ -152,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-yJ-fKe">
-                                <rect key="frame" x="100" y="308" width="175" height="50"/>
+                                <rect key="frame" x="100" y="308" width="175" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="94Z-UI-Tk8"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="175" id="R4R-WL-D74"/>
@@ -209,7 +209,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-qG-L7I">
-                                <rect key="frame" x="100" y="308" width="175" height="52"/>
+                                <rect key="frame" x="100" y="308" width="175" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="TBA-dP-rIa"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Xcg-lU-Gvs"/>

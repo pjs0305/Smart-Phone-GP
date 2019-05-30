@@ -117,9 +117,9 @@
 		A118A17A229952E800A38B40 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				A118A17C2299575600A38B40 /* Food.swift */,
-				A118A17D2299575600A38B40 /* FoodMapVc.swift */,
 				A11896582297EB9300F80FCE /* FoodVC.swift */,
+				A118A17D2299575600A38B40 /* FoodMapVc.swift */,
+				A118A17C2299575600A38B40 /* Food.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -127,9 +127,9 @@
 		A118A17B229952F000A38B40 /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
+				A118965A2297F61B00F80FCE /* PharmacyVC.swift */,
 				A118A18122995B5200A38B40 /* Pharmacy.swift */,
 				A118A18022995B5200A38B40 /* PharmacyMapVC.swift */,
-				A118965A2297F61B00F80FCE /* PharmacyVC.swift */,
 			);
 			path = Pharmacy;
 			sourceTree = "<group>";
