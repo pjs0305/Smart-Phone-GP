@@ -57,7 +57,7 @@ class Food : NSObject, MKAnnotation
         case "중국식":
             return .red
         case "일식":
-            return .white
+            return .yellow
         case "경양식":
             return .green
         case "기타":
@@ -77,3 +77,5 @@ class Food : NSObject, MKAnnotation
         }
     }
 }
+
+

@@ -27,6 +27,8 @@
 		A121D770228D214500A8081E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A121D76F228D214500A8081E /* Assets.xcassets */; };
 		A121D773228D214500A8081E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A121D771228D214500A8081E /* LaunchScreen.storyboard */; };
 		A121D77B228D21D800A8081E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D77A228D21D800A8081E /* PageViewController.swift */; };
+		A17D2E6122A2F16100CF03F7 /* GoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */; };
+		A17D2E6622A3074600CF03F7 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = A17D2E6522A3074600CF03F7 /* Resource */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		A121D772228D214500A8081E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A121D774228D214500A8081E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A121D77A228D21D800A8081E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodDetailTVC.swift; sourceTree = "<group>"; };
+		A17D2E6522A3074600CF03F7 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
+		A17D2E6722A3089F00CF03F7 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +83,10 @@
 		A118A16E2299402700A38B40 /* Good */ = {
 			isa = PBXGroup;
 			children = (
-				A11896482297B7FF00F80FCE /* GoodVC.swift */,
 				A118A16F2299409700A38B40 /* GoodMapVC.swift */,
+				A11896482297B7FF00F80FCE /* GoodVC.swift */,
 				A118A173229940C900A38B40 /* Good.swift */,
+				A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */,
 			);
 			path = Good;
 			sourceTree = "<group>";
@@ -153,12 +159,14 @@
 		A121D767228D214400A8081E /* Term Project Jeju */ = {
 			isa = PBXGroup;
 			children = (
+				A17D2E6522A3074600CF03F7 /* Resource */,
 				A118A175229941D800A38B40 /* First Page */,
 				A118A179229952C100A38B40 /* Second Page */,
 				A121D768228D214400A8081E /* AppDelegate.swift */,
 				A121D76C228D214400A8081E /* Main.storyboard */,
 				A121D77A228D21D800A8081E /* PageViewController.swift */,
 				A121D76F228D214500A8081E /* Assets.xcassets */,
+				A17D2E6722A3089F00CF03F7 /* car.png */,
 				A121D771228D214500A8081E /* LaunchScreen.storyboard */,
 				A121D774228D214500A8081E /* Info.plist */,
 			);
@@ -223,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17D2E6622A3074600CF03F7 /* Resource in Resources */,
 				A121D773228D214500A8081E /* LaunchScreen.storyboard in Resources */,
 				A121D770228D214500A8081E /* Assets.xcassets in Resources */,
 				A121D76E228D214400A8081E /* Main.storyboard in Resources */,
@@ -249,6 +258,7 @@
 				A11896572297E53100F80FCE /* FestivalVC.swift in Sources */,
 				A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */,
 				A118965B2297F61B00F80FCE /* PharmacyVC.swift in Sources */,
+				A17D2E6122A2F16100CF03F7 /* GoodDetailTVC.swift in Sources */,
 				A117F3AD228F1FA7009822A0 /* MinbakVC.swift in Sources */,
 				A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */,
 				A118965D229827C100F80FCE /* MinbakMapVC.swift in Sources */,
@@ -405,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kpu.2019class.Term-Project-Jeju";
+				PRODUCT_BUNDLE_IDENTIFIER = "kpu.2019class.Term-Project-Jeju-ppp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,7 +433,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kpu.2019class.Term-Project-Jeju";
+				PRODUCT_BUNDLE_IDENTIFIER = "kpu.2019class.Term-Project-Jeju-ppp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -8,24 +8,50 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class GoodMapVC: UIViewController, MKMapViewDelegate {
+extension GoodMapVC: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    }
+}
+
+extension GoodMapVC: UISearchBarDelegate {
+    // MARK: - UISearchBar Delegate
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
+    
+class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
     
+    let locationManager = CLLocationManager()
     var posts = NSMutableArray()
-    var initLocation : CLLocation!
+    var initlocation = CLLocationCoordinate2D()
     
     let regionRadius : CLLocationDistance = 5000
     
-    func centerMapOnLocation(location: CLLocation)
+    @IBAction func userlocation(_ sender: Any) {
+        centerMapOnLocation(location : mapView.userLocation.coordinate)
+    }
+    
+    func centerMapOnLocation(location : CLLocationCoordinate2D)
     {
-        let coordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.showsUserLocation = true
+        print(mapView.userLocation.coordinate)
+        
+        let coordinateRegion = MKCoordinateRegion.init(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var goods : [Good] = []
+    var goods : [String:[Good]] = [:]
+    var filteredGoods = [String:[Good]] ()
     
     func loadInitData()
     {
@@ -42,64 +68,79 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
             let lat = (mapx as NSString).doubleValue
             let lon = (mapy as NSString).doubleValue
         
-            let good = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            let good = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post: post as AnyObject)
             
-            goods.append(good)
+            if((goods.index(forKey: discipline)) == nil)
+            {
+                goods[discipline] = []
+            }
+            
+            goods[discipline]?.append(good)
         }
-        
     }
     
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Good
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+        
+        switch control {
+        case let left where left == view.leftCalloutAccessoryView:
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+            break
+        case let right where right == view.rightCalloutAccessoryView:
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodDetailTVC") as! GoodDetailTVC
+            vc.initialize(post: location.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+            break
+        default:
+            break
+        }
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        centerMapOnLocation(location: initLocation)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "업종별 검색"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        searchController.searchBar.scopeButtonTitles = ["모두", "한식", "중식", "일식", "목욕업", "세탁업", "이미용업", "민박업"]
+        searchController.searchBar.delegate = self
         
         mapView.delegate = self
-        
+        self.locationManager.requestAlwaysAuthorization()
         loadInitData()
-        mapView.addAnnotations(goods)
-        // Do any additional setup after loading the view.
+        
+        for key in goods.keys
+        {
+            mapView.addAnnotations(goods[key]!)
+        }
+        
+        centerMapOnLocation(location: initlocation)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
     {
-        // 2. 이 주석(annotation)이 Hospital 객체인지 확인! 그렇지 않으면 nil 지도 뷰에서 기본 주석 뷰를 사용하도록 돌아감.
-        guard let annotation = annotation as? Good else { return nil }
-        
-        // 3. 마커가 나타나게 MKMarkerAnnotationView를 만듦.
-        //    이 자습서의 뒷부분에서는 MKAnnotationView 대신 이미지를 표시하는 객체를 만듦.
+        guard let good = annotation as? Good else { return nil }
         
         let identifier = "marker"
         var view: MKMarkerAnnotationView
         
-        // 4. 코드를 새로 생성하기 전에 재사용 가능한 주석 뷰를 사용할 수 있는지 확인.
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
-        {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        }
-        else
-        {
-            // 5. MKMarkerAnnotationView 주석 보기에서 대기열에서 삭제할 수 없는 경우 여기에서 새 객체를 만듦.
-            //    Hospital 클래스의 title 및 subtitle 속성을 사용하여 콜 아웃에 표시할 내용을 결정합니다.
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x : -5, y : 5)
-            view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
-            
-            // 2. pin icon을 각 discipline의 첫글자로 설정
-            view.markerTintColor = annotation.markerTintColor
-            view.glyphText = String(annotation.discipline.first!)
-        }
+        view = MKMarkerAnnotationView(annotation: good, reuseIdentifier: identifier)
+        view.canShowCallout = true
+        view.calloutOffset = CGPoint(x : -5, y : 5)
+        view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
+        
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        leftButton.setImage(UIImage(named: "car"), for: .normal)
+        view.leftCalloutAccessoryView = leftButton
+        
+        // 2. pin icon을 각 discipline의 첫글자로 설정
+        view.markerTintColor = good.markerTintColor
+        view.glyphText = String(good.discipline.first!)
         
         return view
     }
@@ -118,4 +159,40 @@ class GoodMapVC: UIViewController, MKMapViewDelegate {
     }
     */
 
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    func isFiltering() -> Bool {
+        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredGoods = goods.filter({ (arg0) -> Bool in
+            
+            let (key, _) = arg0
+            
+            let doesCategoryMatch = (scope == "모두") || (key == scope)
+            
+            if searchBarIsEmpty()
+            {
+                return doesCategoryMatch
+            }
+            else
+            {
+                return doesCategoryMatch && key.lowercased().contains(searchText.lowercased())
+            }
+        })
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        for key in filteredGoods.keys
+        {
+            mapView.addAnnotations(filteredGoods[key]!)
+        }
+    }
 }

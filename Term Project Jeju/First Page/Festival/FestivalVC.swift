@@ -22,7 +22,7 @@ class FestivalVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var elements = NSMutableDictionary()
     var element = NSString()
 
-    var url : String! = "http://210.99.248.79/rest/FestivalInquiryService/getFestivalList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&startPage=1&pageSize=1000"
+    var url : String! = "http://210.99.248.79/rest/FestivalInquiryService/getFestivalList?serviceKey=eViWiKT%2B1U3rO4SyUrHM%2FHuk5s0CWFVsP92t9ZopzLEmGmr%2FdDcmwhSwwPfAQyd1qzAHZM%2B9kOL2cqizpzZf3A%3D%3D&startPage=1&pageSize=10"
     
     var parameters : [String] =
         ["edate" /*종료일*/, "host"/*주최*/, "host1"/*주관*/, "info"/*내용*/,

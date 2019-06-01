@@ -16,15 +16,17 @@ class Good : NSObject, MKAnnotation
     let addr : String
     let coordinate : CLLocationCoordinate2D
     let discipline : String
+    let post : AnyObject!
     
     // MKAnnotation 프로토콜을 구현하기 위해서 title, subtitle, coordinate 등 필요
     // 사용자가 핀을 선택할 때 title/subtitle을 표시
-    init(title: String, addr : String, discipline : String, coordinate : CLLocationCoordinate2D)
+    init(title: String, addr : String, discipline : String, coordinate : CLLocationCoordinate2D, post : AnyObject)
     {
         self.title = title
         self.addr = addr
         self.coordinate = coordinate
         self.discipline = discipline
+        self.post = post
         
         super.init()
     }
@@ -64,6 +66,8 @@ class Good : NSObject, MKAnnotation
             return .green
         case "일식":
             return .orange
+        case "민박업":
+            return .yellow
         default:
             return .magenta
         }

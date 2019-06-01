@@ -110,12 +110,9 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
         
         let area = (GoodVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "area") as! NSString as String
         let adres = (GoodVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "adres") as! NSString as String
-        
-        var addr = area + " " + adres
-        
         let induty = (GoodVC.posts.object(at: indexPath.row) as AnyObject).value(forKey: "induty") as! NSString as String
         
-        cell.textLabel?.text = addr
+        cell.textLabel?.text = area + " " + adres
         
         cell.detailTextLabel?.text = induty
         
@@ -132,7 +129,7 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 let lat = (posy as NSString).doubleValue
                 let lon = (posx as NSString).doubleValue
                 
-                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.initlocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                 mapVC.posts = GoodVC.posts
             }
         }

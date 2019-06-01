@@ -22,7 +22,7 @@ class MinbakVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var elements = NSMutableDictionary()
     var element = NSString()
     
-    var url : String! = "http://openapi.jejusi.go.kr/rest/minbakinfoservice/getMinbakInfoList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageNo=1&numOfRows=1000"
+    var url : String! = "http://openapi.jejusi.go.kr/rest/minbakinfoservice/getMinbakInfoList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageNo=1&numOfRows=10"
     
     var parameters : [String] = ["addr", "mapx", "mapy", "name", "room"]
     var datas : [String: NSMutableString] = [:]

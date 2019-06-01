@@ -9,6 +9,22 @@
 import UIKit
 import MapKit
 
+extension FoodMapVC: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    }
+}
+
+extension FoodMapVC: UISearchBarDelegate {
+    // MARK: - UISearchBar Delegate
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
+
 class FoodMapVC: UIViewController, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
@@ -25,7 +41,8 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var foods : [Food] = []
+    var foods : [String:[Food]] = [:]
+    var filteredFoods = [String:[Food]] ()
     
     func loadInitData()
     {
@@ -42,7 +59,12 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         
             let food = Food(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
             
-            foods.append(food)
+            if((foods.index(forKey: discipline)) == nil)
+            {
+                foods[discipline] = []
+            }
+            
+            foods[discipline]?.append(food)
         }
         
     }
@@ -59,13 +81,23 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "업종별 검색"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        searchController.searchBar.scopeButtonTitles = ["모두", "한식", "중국식", "일식", "경양식", "기타", "탕류", "식육취급", "생선회", "음식점", "뷔페식"]
+        searchController.searchBar.delegate = self
+        
         centerMapOnLocation(location: initLocation)
-        
         mapView.delegate = self
-        
         loadInitData()
-        mapView.addAnnotations(foods)
-        // Do any additional setup after loading the view.
+        
+        for key in foods.keys
+        {
+            mapView.addAnnotations(foods[key]!)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
@@ -79,25 +111,16 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         let identifier = "marker"
         var view: MKMarkerAnnotationView
         
-        // 4. 코드를 새로 생성하기 전에 재사용 가능한 주석 뷰를 사용할 수 있는지 확인.
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
-        {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        }
-        else
-        {
-            // 5. MKMarkerAnnotationView 주석 보기에서 대기열에서 삭제할 수 없는 경우 여기에서 새 객체를 만듦.
-            //    Hospital 클래스의 title 및 subtitle 속성을 사용하여 콜 아웃에 표시할 내용을 결정합니다.
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x : -5, y : 5)
-            view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
-            
-            // 2. pin icon을 각 discipline의 첫글자로 설정
-            view.markerTintColor = annotation.markerTintColor
-            view.glyphText = String(annotation.discipline.first!)
-        }
+        // 5. MKMarkerAnnotationView 주석 보기에서 대기열에서 삭제할 수 없는 경우 여기에서 새 객체를 만듦.
+        //    Hospital 클래스의 title 및 subtitle 속성을 사용하여 콜 아웃에 표시할 내용을 결정합니다.
+        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        view.canShowCallout = true
+        view.calloutOffset = CGPoint(x : -5, y : 5)
+        view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
+        
+        // 2. pin icon을 각 discipline의 첫글자로 설정
+        view.markerTintColor = annotation.markerTintColor
+        view.glyphText = String(annotation.discipline.first!)
         
         return view
     }
@@ -115,5 +138,42 @@ class FoodMapVC: UIViewController, MKMapViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    func isFiltering() -> Bool {
+        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredFoods = foods.filter({ (arg0) -> Bool in
+            
+            let (key, _) = arg0
+            
+            let doesCategoryMatch = (scope == "모두") || (key == scope)
+            
+            if searchBarIsEmpty()
+            {
+                return doesCategoryMatch
+            }
+            else
+            {
+                return doesCategoryMatch && key.lowercased().contains(searchText.lowercased())
+            }
+        })
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        for key in filteredFoods.keys
+        {
+            mapView.addAnnotations(filteredFoods[key]!)
+        }
+    }
 
 }
