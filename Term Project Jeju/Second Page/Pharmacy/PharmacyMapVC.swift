@@ -9,18 +9,25 @@
 import UIKit
 import MapKit
 
-class PharmacyMapVC: UIViewController, MKMapViewDelegate {
+class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
     
+    let locationManager = CLLocationManager()
     var posts = NSMutableArray()
-    var initLocation : CLLocation!
+    var initlocation = CLLocationCoordinate2D()
     
     let regionRadius : CLLocationDistance = 5000
     
-    func centerMapOnLocation(location: CLLocation)
+    @IBAction func userlocation(_ sender: Any) {
+        centerMapOnLocation(location : mapView.userLocation.coordinate)
+    }
+    
+    func centerMapOnLocation(location : CLLocationCoordinate2D)
     {
-        let coordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.showsUserLocation = true
+        
+        let coordinateRegion = MKCoordinateRegion.init(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         
         mapView.setRegion(coordinateRegion, animated: true)
     }
@@ -38,7 +45,7 @@ class PharmacyMapVC: UIViewController, MKMapViewDelegate {
             let lat = (la as NSString).doubleValue
             let lon = (lo as NSString).doubleValue
         
-            let pharmacy = Pharmacy(title: dataTitle, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            let pharmacy = Pharmacy(title: dataTitle, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
             
             pharmacys.append(pharmacy)
         }
@@ -48,18 +55,30 @@ class PharmacyMapVC: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Pharmacy
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+        
+        switch control {
+        case let left where left == view.leftCalloutAccessoryView:
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+            break
+        case let right where right == view.rightCalloutAccessoryView:
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PharmacyDetailTVC") as! PharmacyDetailTVC
+            vc.initialize(post: location.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+            break
+        default:
+            break
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        centerMapOnLocation(location: initLocation)
-        
         mapView.delegate = self
-        
+        self.locationManager.requestAlwaysAuthorization()
         loadInitData()
+        centerMapOnLocation(location: initlocation)
+        
         mapView.addAnnotations(pharmacys)
         // Do any additional setup after loading the view.
     }
@@ -89,6 +108,10 @@ class PharmacyMapVC: UIViewController, MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x : -5, y : 5)
             view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
+            
+            let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            leftButton.setImage(UIImage(named: "car"), for: .normal)
+            view.leftCalloutAccessoryView = leftButton
         }
         
         return view

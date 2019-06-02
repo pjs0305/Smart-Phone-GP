@@ -43,7 +43,6 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     func centerMapOnLocation(location : CLLocationCoordinate2D)
     {
         mapView.showsUserLocation = true
-        print(mapView.userLocation.coordinate)
         
         let coordinateRegion = MKCoordinateRegion.init(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         

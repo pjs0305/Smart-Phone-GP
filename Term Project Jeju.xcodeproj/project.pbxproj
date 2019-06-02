@@ -29,6 +29,8 @@
 		A121D77B228D21D800A8081E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D77A228D21D800A8081E /* PageViewController.swift */; };
 		A17D2E6122A2F16100CF03F7 /* GoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */; };
 		A17D2E6622A3074600CF03F7 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = A17D2E6522A3074600CF03F7 /* Resource */; };
+		A17D2E6B22A310DF00CF03F7 /* PharmacyDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */; };
+		A17D2E6D22A3110800CF03F7 /* FoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodDetailTVC.swift; sourceTree = "<group>"; };
 		A17D2E6522A3074600CF03F7 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
 		A17D2E6722A3089F00CF03F7 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyDetailTVC.swift; sourceTree = "<group>"; };
+		A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +127,10 @@
 		A118A17A229952E800A38B40 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				A11896582297EB9300F80FCE /* FoodVC.swift */,
 				A118A17D2299575600A38B40 /* FoodMapVc.swift */,
+				A11896582297EB9300F80FCE /* FoodVC.swift */,
 				A118A17C2299575600A38B40 /* Food.swift */,
+				A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -133,9 +138,10 @@
 		A118A17B229952F000A38B40 /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
+				A118A18022995B5200A38B40 /* PharmacyMapVC.swift */,
 				A118965A2297F61B00F80FCE /* PharmacyVC.swift */,
 				A118A18122995B5200A38B40 /* Pharmacy.swift */,
-				A118A18022995B5200A38B40 /* PharmacyMapVC.swift */,
+				A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */,
 			);
 			path = Pharmacy;
 			sourceTree = "<group>";
@@ -250,10 +256,12 @@
 				A121D76B228D214400A8081E /* SecondVC.swift in Sources */,
 				A11896592297EB9300F80FCE /* FoodVC.swift in Sources */,
 				A118A18322995B5200A38B40 /* Pharmacy.swift in Sources */,
+				A17D2E6B22A310DF00CF03F7 /* PharmacyDetailTVC.swift in Sources */,
 				A121D769228D214400A8081E /* AppDelegate.swift in Sources */,
 				A11896492297B80000F80FCE /* GoodVC.swift in Sources */,
 				A118A177229941F900A38B40 /* FirstVC.swift in Sources */,
 				A118A17E2299575600A38B40 /* Food.swift in Sources */,
+				A17D2E6D22A3110800CF03F7 /* FoodDetailTVC.swift in Sources */,
 				A118A174229940C900A38B40 /* Good.swift in Sources */,
 				A11896572297E53100F80FCE /* FestivalVC.swift in Sources */,
 				A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */,

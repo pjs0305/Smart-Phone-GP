@@ -26,7 +26,7 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     
     var parameters : [String] =
         ["adres"/*주소*/, "dataTitle"/*업소명*/, "la"/*위도*/, "lo"/*경도*/,
-        "regData"/*작성일*/, "remark"/*비고*/, "telNo"/*연락처*/]
+        "regDate"/*작성일*/, "remark"/*비고*/, "telNo"/*연락처*/]
     
     var datas : [String: NSMutableString] = [:]
     
@@ -126,7 +126,7 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 let lat = (la as NSString).doubleValue
                 let lon = (lo as NSString).doubleValue
                 
-                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.initlocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                 mapVC.posts = PharmacyVC.posts
             }
         }

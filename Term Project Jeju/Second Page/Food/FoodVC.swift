@@ -26,7 +26,7 @@ class FoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     
     var parameters : [String] =
         ["adres"/*주소*/, "bizcnd"/*업태*/, "dataTitle"/*업소명*/, "la",/*위도*/
-        "lo"/*경도*/, "menu"/*메뉴*/, "regData"/*작성일*/, "telNo"/*전화번호*/]
+        "lo"/*경도*/, "menu"/*메뉴*/, "regDate"/*작성일*/, "telNo"/*전화번호*/]
     
     var datas : [String: NSMutableString] = [:]
     
@@ -126,8 +126,9 @@ class FoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 let lat = (la as NSString).doubleValue
                 let lon = (lo as NSString).doubleValue
                 
-                mapVC.initLocation = CLLocation(latitude: lat, longitude: lon)
+                mapVC.initlocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                 mapVC.posts = FoodVC.posts
+                print(mapVC.posts)
             }
         }
     }
