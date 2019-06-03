@@ -48,8 +48,8 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var foods : [String:[Food]] = [:]
-    var filteredFoods = [String:[Food]] ()
+    var items : [String:[Food]] = [:]
+    var filtereditems = [String:[Food]] ()
     
     func loadInitData()
     {
@@ -66,14 +66,79 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         
             let food = Food(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
             
-            if((foods.index(forKey: discipline)) == nil)
+            if((items.index(forKey: discipline)) == nil)
             {
-                foods[discipline] = []
+                items[discipline] = []
             }
             
-            foods[discipline]?.append(food)
+            items[discipline]?.append(food)
+        }
+    }
+    
+    @IBAction func MoveNearFromMapLocation(_ sender: Any) {
+        let mapCenter = mapView.centerCoordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    @IBAction func MoveNearFromMyLocation(_ sender: Any) {
+        let mapCenter = mapView.userLocation.coordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    func FindNearLocation(center : CLLocationCoordinate2D) -> CLLocationCoordinate2D
+    {
+        var location : CLLocationCoordinate2D
+        var nearestlat : Double
+        var nearestlon : Double
+        
+        if filtereditems.count == 0
+        {
+            location = (items.first?.value.first!.coordinate)!
+            nearestlat = fabs(center.latitude - (items.first?.value.first!.coordinate.latitude)!)
+            nearestlon = fabs(center.longitude - (items.first?.value.first!.coordinate.longitude)!)
+            
+            for key in items.keys
+            {
+                for item in items[key]!
+                {
+                    let distlat = fabs(center.latitude - item.coordinate.latitude)
+                    let distlon = fabs(center.longitude - item.coordinate.longitude)
+                    
+                    if ( distlat + distlon < nearestlat + nearestlon)
+                    {
+                        location = item.coordinate
+                        nearestlat = distlat
+                        nearestlon = distlon
+                    }
+                }
+            }
+        }
+        else
+        {
+            location = (filtereditems.first?.value.first!.coordinate)!
+            nearestlat = fabs(center.latitude - (filtereditems.first?.value.first!.coordinate.latitude)!)
+            nearestlon = fabs(center.longitude - (filtereditems.first?.value.first!.coordinate.longitude)!)
+            
+            for key in filtereditems.keys
+            {
+                for item in filtereditems[key]!
+                {
+                    let distlat = fabs(center.latitude - item.coordinate.latitude)
+                    let distlon = fabs(center.longitude - item.coordinate.longitude)
+                    
+                    if ( distlat + distlon < nearestlat + nearestlon)
+                    {
+                        location = item.coordinate
+                        nearestlat = distlat
+                        nearestlon = distlon
+                    }
+                }
+            }
         }
         
+        return location
     }
     
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
@@ -95,8 +160,6 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -113,9 +176,9 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         self.locationManager.requestAlwaysAuthorization()
         loadInitData()
         
-        for key in foods.keys
+        for key in items.keys
         {
-            mapView.addAnnotations(foods[key]!)
+            mapView.addAnnotations(items[key]!)
         }
         
         centerMapOnLocation(location: initlocation)
@@ -172,7 +235,7 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredFoods = foods.filter({ (arg0) -> Bool in
+        filtereditems = items.filter({ (arg0) -> Bool in
             
             let (key, _) = arg0
             
@@ -190,9 +253,9 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         
         mapView.removeAnnotations(mapView.annotations)
         
-        for key in filteredFoods.keys
+        for key in filtereditems.keys
         {
-            mapView.addAnnotations(filteredFoods[key]!)
+            mapView.addAnnotations(filtereditems[key]!)
         }
     }
 

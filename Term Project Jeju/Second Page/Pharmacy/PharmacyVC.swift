@@ -22,7 +22,7 @@ class PharmacyVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
     var elements = NSMutableDictionary()
     var element = NSString()
 
-    var url : String! = "http://data.jeju.go.kr/rest/nightpharmacy/getNightPharmacyList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=1000"
+    var url : String! = "http://data.jeju.go.kr/rest/nightpharmacy/getNightPharmacyList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=100"
     
     var parameters : [String] =
         ["adres"/*주소*/, "dataTitle"/*업소명*/, "la"/*위도*/, "lo"/*경도*/,

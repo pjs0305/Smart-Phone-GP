@@ -13,8 +13,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     var pageViewController : UIPageViewController!
     
     var pageIndex : Int! = 0
-    var beforePageIndex : Int! = 0
-    var afterPageIndex : Int! = 1
+    var pageCount : Int! = 0
     var pageID = ["PageOne", "PageTwo"]
     
     var mainSB : UIStoryboard
@@ -22,40 +21,49 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         return UIStoryboard(name: "Main", bundle : nil)
     }
     
-    func GetVC(identity : String!) -> UIViewController!
+    func GetVC(index : Int!) -> UIViewController!
     {
-        return self.mainSB.instantiateViewController(withIdentifier: identity)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: pageID[index]) as! InPvcVC
+        
+        vc.pageIndex = index
+        
+        return vc
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        // 인덱스가 맨 앞이면 nil
-        guard pageIndex > 0 else
+        let vc = viewController as! InPvcVC
+        
+        var index = vc.pageIndex as Int
+        
+        if(index == 0 || index == NSNotFound)
         {
             return nil
         }
         
-        // 이전 페이지 인덱스
-        pageIndex -= 1
+        index -= 1
         
-        return GetVC(identity: pageID[pageIndex])
+        return self.GetVC(index: index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard pageIndex < pageID.count - 1 else
+        let vc = viewController as! InPvcVC
+        
+        var index = vc.pageIndex as Int
+        
+        if(index == pageID.count - 1 || index == NSNotFound)
         {
             return nil
         }
         
-        // 다음 페이지 인덱스
-        pageIndex += 1
+        index += 1
         
-        return GetVC(identity: pageID[pageIndex])
+        return self.GetVC(index: index)
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return self.pageID.count
+        return self.pageCount
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
@@ -63,10 +71,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        self.pageCount = pageID.count
         
         self.dataSource = self
         
-        self.setViewControllers([GetVC(identity: pageID[0])], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
+        self.setViewControllers([GetVC(index: 0)], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
+        
+        super.viewDidLoad()
+        
     }
 }

@@ -18,6 +18,8 @@ class PharmacyDetailTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = posts[0] + " 상세 정보"
     }
     
     func initialize(post : AnyObject!)

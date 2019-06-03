@@ -32,7 +32,7 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var pharmacys : [Pharmacy] = []
+    var items : [Pharmacy] = []
     
     func loadInitData()
     {
@@ -47,9 +47,47 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         
             let pharmacy = Pharmacy(title: dataTitle, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
             
-            pharmacys.append(pharmacy)
+            items.append(pharmacy)
         }
         
+    }
+    
+    @IBAction func MoveNearFromMapLocation(_ sender: Any) {
+        let mapCenter = mapView.centerCoordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    @IBAction func MoveNearFromMyLocation(_ sender: Any) {
+        let mapCenter = mapView.userLocation.coordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    func FindNearLocation(center : CLLocationCoordinate2D) -> CLLocationCoordinate2D
+    {
+        var location : CLLocationCoordinate2D
+        var nearestlat : Double
+        var nearestlon : Double
+        
+        location = (items.first!.coordinate)
+        nearestlat = fabs(center.latitude - (items.first!.coordinate.latitude))
+        nearestlon = fabs(center.longitude - (items.first!.coordinate.longitude))
+        
+        for item in items
+        {
+            let distlat = fabs(center.latitude - item.coordinate.latitude)
+            let distlon = fabs(center.longitude - item.coordinate.longitude)
+            
+            if ( distlat + distlon < nearestlat + nearestlon)
+            {
+                location = item.coordinate
+                nearestlat = distlat
+                nearestlon = distlon
+            }
+        }
+        
+        return location
     }
     
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
@@ -79,7 +117,7 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         loadInitData()
         centerMapOnLocation(location: initlocation)
         
-        mapView.addAnnotations(pharmacys)
+        mapView.addAnnotations(items)
         // Do any additional setup after loading the view.
     }
     

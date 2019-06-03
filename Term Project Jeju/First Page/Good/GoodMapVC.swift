@@ -49,8 +49,8 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var goods : [String:[Good]] = [:]
-    var filteredGoods = [String:[Good]] ()
+    var items : [String:[Good]] = [:]
+    var filtereditems = [String:[Good]] ()
     
     func loadInitData()
     {
@@ -69,13 +69,79 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         
             let good = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post: post as AnyObject)
             
-            if((goods.index(forKey: discipline)) == nil)
+            if((items.index(forKey: discipline)) == nil)
             {
-                goods[discipline] = []
+                items[discipline] = []
             }
             
-            goods[discipline]?.append(good)
+            items[discipline]?.append(good)
         }
+    }
+    
+    @IBAction func MoveNearFromMapLocation(_ sender: Any) {
+        let mapCenter = mapView.centerCoordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    @IBAction func MoveNearFromMyLocation(_ sender: Any) {
+        let mapCenter = mapView.userLocation.coordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    func FindNearLocation(center : CLLocationCoordinate2D) -> CLLocationCoordinate2D
+    {
+        var location : CLLocationCoordinate2D
+        var nearestlat : Double
+        var nearestlon : Double
+        
+        if filtereditems.count == 0
+        {
+            location = (items.first?.value.first!.coordinate)!
+            nearestlat = fabs(center.latitude - (items.first?.value.first!.coordinate.latitude)!)
+            nearestlon = fabs(center.longitude - (items.first?.value.first!.coordinate.longitude)!)
+            
+            for key in items.keys
+            {
+                for item in items[key]!
+                {
+                    let distlat = fabs(center.latitude - item.coordinate.latitude)
+                    let distlon = fabs(center.longitude - item.coordinate.longitude)
+                    
+                    if ( distlat + distlon < nearestlat + nearestlon)
+                    {
+                        location = item.coordinate
+                        nearestlat = distlat
+                        nearestlon = distlon
+                    }
+                }
+            }
+        }
+        else
+        {
+            location = (filtereditems.first?.value.first!.coordinate)!
+            nearestlat = fabs(center.latitude - (filtereditems.first?.value.first!.coordinate.latitude)!)
+            nearestlon = fabs(center.longitude - (filtereditems.first?.value.first!.coordinate.longitude)!)
+            
+            for key in filtereditems.keys
+            {
+                for item in filtereditems[key]!
+                {
+                    let distlat = fabs(center.latitude - item.coordinate.latitude)
+                    let distlon = fabs(center.longitude - item.coordinate.longitude)
+                    
+                    if ( distlat + distlon < nearestlat + nearestlon)
+                    {
+                        location = item.coordinate
+                        nearestlat = distlat
+                        nearestlon = distlon
+                    }
+                }
+            }
+        }
+        
+        return location
     }
     
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
@@ -113,9 +179,9 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         self.locationManager.requestAlwaysAuthorization()
         loadInitData()
         
-        for key in goods.keys
+        for key in items.keys
         {
-            mapView.addAnnotations(goods[key]!)
+            mapView.addAnnotations(items[key]!)
         }
         
         centerMapOnLocation(location: initlocation)
@@ -171,7 +237,7 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredGoods = goods.filter({ (arg0) -> Bool in
+        filtereditems = items.filter({ (arg0) -> Bool in
             
             let (key, _) = arg0
             
@@ -189,9 +255,9 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
         
         mapView.removeAnnotations(mapView.annotations)
         
-        for key in filteredGoods.keys
+        for key in filtereditems.keys
         {
-            mapView.addAnnotations(filteredGoods[key]!)
+            mapView.addAnnotations(filtereditems[key]!)
         }
     }
 }

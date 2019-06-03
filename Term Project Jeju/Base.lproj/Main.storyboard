@@ -14,11 +14,13 @@
         <scene sceneID="UeT-H3-9nM">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Awd-4W-0s4" customClass="PageViewController" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="TGu-Iv-crD"/>
+                    <navigationItem key="navigationItem" id="TGu-Iv-crD">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="2K8-Qt-khR"/>
+                    </navigationItem>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ava-iQ-Fhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3998" y="-277"/>
+            <point key="canvasLocation" x="3532" y="-426"/>
         </scene>
         <!--농어촌 민박집 정보-->
         <scene sceneID="ymG-GN-tWj">
@@ -28,9 +30,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jzb-mp-Upk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jzb-mp-Upk">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="2Bo-fz-gzt" detailTextLabel="RhN-Ss-ppK" style="IBUITableViewCellStyleSubtitle" id="nuC-Ij-WB3">
@@ -66,12 +67,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yCO-KH-ca4" firstAttribute="trailing" secondItem="Jzb-mp-Upk" secondAttribute="trailing" constant="16" id="GcH-eI-3DE"/>
+                            <constraint firstItem="Jzb-mp-Upk" firstAttribute="leading" secondItem="yCO-KH-ca4" secondAttribute="leading" constant="16" id="Vh8-nD-1HK"/>
+                            <constraint firstItem="yCO-KH-ca4" firstAttribute="bottom" secondItem="Jzb-mp-Upk" secondAttribute="bottom" constant="20" id="Wo5-a9-Oid"/>
+                            <constraint firstItem="Jzb-mp-Upk" firstAttribute="top" secondItem="Yzn-8i-9Rh" secondAttribute="top" constant="20" id="ySs-i3-dKg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yCO-KH-ca4"/>
                     </view>
                     <navigationItem key="navigationItem" title="농어촌 민박집 정보" id="evC-ml-038">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="uhK-qx-W4i">
                             <connections>
-                                <segue destination="Te2-uX-IJB" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Pn0-Kc-jpJ"/>
+                                <segue destination="Te2-uX-IJB" kind="unwind" unwindAction="doneToViewControllerWithSegue:" id="wPh-r9-PCi"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="지도 보기" id="Xq9-e5-OV3">
@@ -122,45 +129,29 @@
         <!--PageOne-->
         <scene sceneID="YHU-pU-dWW">
             <objects>
-                <viewController storyboardIdentifier="PageOne" title="PageOne" id="Sfj-I8-tt6" customClass="FirstVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageOne" title="PageOne" id="Sfj-I8-tt6" customClass="InPvcVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wsB-uE-yOh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-Lt-D3G">
-                                <rect key="frame" x="100" y="170" width="175" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="Z29-U9-Ew7"/>
-                                    <constraint firstAttribute="height" constant="50" id="dKc-eT-8qH"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-Lt-D3G">
+                                <rect key="frame" x="100" y="170" width="175" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="농어촌 민박 정보"/>
                                 <connections>
                                     <segue destination="Ubc-wh-v1W" kind="show" id="0ew-oO-Lsr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj6-WY-dea">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj6-WY-dea">
                                 <rect key="frame" x="100" y="467" width="175" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CBc-Py-OYd"/>
-                                    <constraint firstAttribute="width" constant="175" id="dgo-sH-cUT"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="축제/행사 정보"/>
                                 <connections>
                                     <segue destination="9r8-k0-GUx" kind="show" id="oLh-cb-N4d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-yJ-fKe">
-                                <rect key="frame" x="100" y="308" width="175" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="94Z-UI-Tk8"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="175" id="R4R-WL-D74"/>
-                                    <constraint firstAttribute="width" constant="175" id="f7U-oW-UPB"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="opB-gA-nNa"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="sOO-DO-v03"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="sb1-e3-c3E"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-yJ-fKe">
+                                <rect key="frame" x="100" y="302" width="175" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="착한업소 정보"/>
                                 <connections>
@@ -170,16 +161,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hj6-WY-dea" firstAttribute="top" secondItem="P6Q-yJ-fKe" secondAttribute="bottom" constant="108" id="2Xf-qx-Nc3"/>
-                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="8RX-Qo-5s6"/>
-                            <constraint firstItem="hj6-WY-dea" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="BdG-g2-yev"/>
-                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="top" secondItem="c38-6w-3eL" secondAttribute="top" constant="150" id="HFE-q4-Swv"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="P6Q-yJ-fKe" secondAttribute="trailing" constant="100" id="NFk-wN-wRE"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="xDp-Lt-D3G" secondAttribute="trailing" constant="100" id="Npw-6S-pon"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="bottom" secondItem="hj6-WY-dea" secondAttribute="bottom" constant="150" id="P8j-Xi-0kj"/>
-                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="88" id="Uae-Qj-CcI"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="hj6-WY-dea" secondAttribute="trailing" constant="100" id="i5M-Ji-aID"/>
-                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="l77-Q3-NhG"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="0dL-JK-mJA"/>
+                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="0lc-t6-gze"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="bottom" secondItem="hj6-WY-dea" secondAttribute="bottom" constant="150" id="8jI-iq-len"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="88" id="Aqb-R0-gD9"/>
+                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="top" secondItem="c38-6w-3eL" secondAttribute="top" constant="150" id="HCP-tz-tvV"/>
+                            <constraint firstItem="hj6-WY-dea" firstAttribute="top" secondItem="P6Q-yJ-fKe" secondAttribute="bottom" constant="114" id="gnS-qB-eL3"/>
+                            <constraint firstItem="hj6-WY-dea" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="nV7-dA-sFr"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="hj6-WY-dea" secondAttribute="trailing" constant="100" id="r9D-70-mCH"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="88" id="sKZ-cg-Pua"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="xDp-Lt-D3G" secondAttribute="trailing" constant="100" id="w6s-rj-9xo"/>
+                            <constraint firstItem="hj6-WY-dea" firstAttribute="top" secondItem="P6Q-yJ-fKe" secondAttribute="bottom" constant="88" id="ypr-Kx-QNS"/>
+                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="P6Q-yJ-fKe" secondAttribute="trailing" constant="100" id="zgL-YR-ySn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c38-6w-3eL"/>
                     </view>
@@ -191,17 +184,13 @@
         <!--PageTwo-->
         <scene sceneID="DfJ-pX-BWn">
             <objects>
-                <viewController storyboardIdentifier="PageTwo" title="PageTwo" id="hQG-8v-sZh" customClass="SecondVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageTwo" title="PageTwo" id="hQG-8v-sZh" customClass="InPvcVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILu-4I-F3D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-11-Zeg">
-                                <rect key="frame" x="100" y="170" width="175" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2o5-So-Mym"/>
-                                    <constraint firstAttribute="width" constant="175" id="gTa-Sl-VO6"/>
-                                </constraints>
+                                <rect key="frame" x="100" y="170" width="175" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="모범 음식점 정보"/>
                                 <connections>
@@ -209,13 +198,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-qG-L7I">
-                                <rect key="frame" x="100" y="308" width="175" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="TBA-dP-rIa"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Xcg-lU-Gvs"/>
-                                    <constraint firstAttribute="height" constant="50" id="aBO-bp-YxP"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="s0s-nf-kee"/>
-                                </constraints>
+                                <rect key="frame" x="100" y="302" width="175" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="심야약국정보"/>
                                 <connections>
@@ -225,20 +208,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CYq-qG-L7I" firstAttribute="top" secondItem="t5l-11-Zeg" secondAttribute="bottom" constant="88" id="0KL-c1-HwC"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="CYq-qG-L7I" secondAttribute="trailing" constant="100" id="W07-M8-eRy"/>
-                            <constraint firstItem="t5l-11-Zeg" firstAttribute="top" secondItem="vy2-kI-Xd8" secondAttribute="top" constant="150" id="eWa-Ul-G1H"/>
-                            <constraint firstItem="t5l-11-Zeg" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="100" id="eeu-rD-IDv"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="t5l-11-Zeg" secondAttribute="trailing" constant="100" id="fju-Bs-qMt"/>
-                            <constraint firstItem="CYq-qG-L7I" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="100" id="rYK-pX-Hjw"/>
-                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="bottom" secondItem="CYq-qG-L7I" secondAttribute="bottom" constant="308" id="xb1-Zx-eR9"/>
+                            <constraint firstItem="CYq-qG-L7I" firstAttribute="top" secondItem="t5l-11-Zeg" secondAttribute="bottom" constant="88" id="5gc-GG-ee2"/>
+                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="CYq-qG-L7I" secondAttribute="trailing" constant="100" id="B3L-72-iNr"/>
+                            <constraint firstItem="CYq-qG-L7I" firstAttribute="top" secondItem="t5l-11-Zeg" secondAttribute="bottom" constant="88" id="QWC-4H-kvh"/>
+                            <constraint firstItem="t5l-11-Zeg" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="100" id="RNP-eO-yeh"/>
+                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="bottom" secondItem="CYq-qG-L7I" secondAttribute="bottom" constant="313" id="Ryc-ST-cPa"/>
+                            <constraint firstItem="vy2-kI-Xd8" firstAttribute="trailing" secondItem="t5l-11-Zeg" secondAttribute="trailing" constant="100" id="XBy-tK-pv6"/>
+                            <constraint firstItem="CYq-qG-L7I" firstAttribute="leading" secondItem="vy2-kI-Xd8" secondAttribute="leading" constant="100" id="mUz-Lm-X3q"/>
+                            <constraint firstItem="t5l-11-Zeg" firstAttribute="top" secondItem="vy2-kI-Xd8" secondAttribute="top" constant="150" id="rYs-zA-rup"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vy2-kI-Xd8"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDX-D2-RC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5401" y="381"/>
+            <point key="canvasLocation" x="4462" y="381"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qsk-q7-zhG">
@@ -256,7 +240,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7Q-dN-E1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3999" y="-1066"/>
+            <point key="canvasLocation" x="3532" y="-1208"/>
         </scene>
         <!--착한 업소 정보-->
         <scene sceneID="KTh-fI-f2J">
@@ -266,9 +250,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nds-sZ-Dkt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nds-sZ-Dkt">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="gFi-zX-dz6" detailTextLabel="LZl-zN-beL" style="IBUITableViewCellStyleSubtitle" id="dTa-zB-ZNg">
@@ -304,12 +287,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nds-sZ-Dkt" firstAttribute="top" secondItem="ToF-JF-GcR" secondAttribute="top" constant="20" id="93W-lm-OlP"/>
+                            <constraint firstItem="oL5-kI-8Rd" firstAttribute="trailing" secondItem="nds-sZ-Dkt" secondAttribute="trailing" constant="16" id="WI9-D3-4Ws"/>
+                            <constraint firstItem="nds-sZ-Dkt" firstAttribute="leading" secondItem="oL5-kI-8Rd" secondAttribute="leading" constant="16" id="jZM-DR-0Al"/>
+                            <constraint firstItem="oL5-kI-8Rd" firstAttribute="bottom" secondItem="nds-sZ-Dkt" secondAttribute="bottom" constant="20" id="vOX-FV-sph"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oL5-kI-8Rd"/>
                     </view>
                     <navigationItem key="navigationItem" title="착한 업소 정보" id="Ofj-FE-Q4w">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="dte-Ut-NTz">
                             <connections>
-                                <segue destination="6v3-0E-A5y" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="f67-HD-Tf5"/>
+                                <segue destination="6v3-0E-A5y" kind="unwind" unwindAction="doneToViewControllerWithSegue:" id="NMH-FF-gbU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DbM-sY-MA2">
@@ -335,9 +324,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLl-Ie-3kH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLl-Ie-3kH">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="4aE-Xj-Gbv" detailTextLabel="blI-Vt-OZQ" style="IBUITableViewCellStyleSubtitle" id="O1P-FI-ADb">
@@ -373,12 +361,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OLl-Ie-3kH" firstAttribute="leading" secondItem="tZz-5H-QHO" secondAttribute="leading" constant="16" id="Gic-2b-xpm"/>
+                            <constraint firstItem="tZz-5H-QHO" firstAttribute="bottom" secondItem="OLl-Ie-3kH" secondAttribute="bottom" constant="20" id="f5h-Jf-iOF"/>
+                            <constraint firstItem="OLl-Ie-3kH" firstAttribute="top" secondItem="ahh-wr-Fgz" secondAttribute="top" constant="20" id="iiD-vx-xz1"/>
+                            <constraint firstItem="tZz-5H-QHO" firstAttribute="trailing" secondItem="OLl-Ie-3kH" secondAttribute="trailing" constant="16" id="qPi-OZ-mGw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tZz-5H-QHO"/>
                     </view>
                     <navigationItem key="navigationItem" title="축제/행사 정보" id="6HW-ji-4fT">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="le1-U3-Jrh">
                             <connections>
-                                <segue destination="3li-KY-e2C" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Ma6-So-20p"/>
+                                <segue destination="3li-KY-e2C" kind="unwind" unwindAction="doneToViewControllerWithSegue:" id="h3x-Ux-8w0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -399,9 +393,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyo-Fz-OCa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tyo-Fz-OCa">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="TaQ-Kp-s7g" detailTextLabel="OUo-6L-dY2" style="IBUITableViewCellStyleSubtitle" id="zW5-gN-Igi">
@@ -437,12 +430,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="isf-JI-qgT" firstAttribute="trailing" secondItem="tyo-Fz-OCa" secondAttribute="trailing" constant="16" id="9r0-wk-fsH"/>
+                            <constraint firstItem="tyo-Fz-OCa" firstAttribute="top" secondItem="DTH-Zd-MSf" secondAttribute="top" constant="20" id="Cat-5X-peK"/>
+                            <constraint firstItem="tyo-Fz-OCa" firstAttribute="leading" secondItem="isf-JI-qgT" secondAttribute="leading" constant="16" id="gp5-SJ-XKf"/>
+                            <constraint firstItem="isf-JI-qgT" firstAttribute="bottom" secondItem="tyo-Fz-OCa" secondAttribute="bottom" constant="20" id="pXy-qs-nIm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="isf-JI-qgT"/>
                     </view>
                     <navigationItem key="navigationItem" title="모범 음식점 정보" id="dYT-7B-TSC">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="v0m-Te-9cb">
                             <connections>
-                                <segue destination="dpz-tk-O0k" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="UlT-rY-Dtx"/>
+                                <segue destination="dpz-tk-O0k" kind="unwind" unwindAction="doneToViewControllerWithSegue:" id="R96-d8-blU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="지도 보기" id="IRB-ch-wvT">
@@ -468,9 +467,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SHn-QV-b2j">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SHn-QV-b2j">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="YZu-x9-d3U" detailTextLabel="vdY-Ry-mSA" style="IBUITableViewCellStyleSubtitle" id="pKh-P6-H1T">
@@ -506,12 +504,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SHn-QV-b2j" firstAttribute="leading" secondItem="bHd-UN-DqK" secondAttribute="leading" constant="16" id="Qpc-w8-tEh"/>
+                            <constraint firstItem="bHd-UN-DqK" firstAttribute="bottom" secondItem="SHn-QV-b2j" secondAttribute="bottom" constant="20" id="lHy-ZV-WMk"/>
+                            <constraint firstItem="bHd-UN-DqK" firstAttribute="trailing" secondItem="SHn-QV-b2j" secondAttribute="trailing" constant="16" id="vM1-3g-SPi"/>
+                            <constraint firstItem="SHn-QV-b2j" firstAttribute="top" secondItem="qHS-hZ-1Wd" secondAttribute="top" constant="20" id="xUu-q5-KeH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bHd-UN-DqK"/>
                     </view>
                     <navigationItem key="navigationItem" title="심야약국 정보" id="7F2-y2-vpS">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="V2b-gd-uL7">
                             <connections>
-                                <segue destination="eob-xL-SZQ" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="nhh-Nv-GMv"/>
+                                <segue destination="eob-xL-SZQ" kind="unwind" unwindAction="doneToViewControllerWithSegue:" id="QYO-ad-Zbn"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="지도 보기" id="DLW-Bg-alw">
@@ -550,7 +554,6 @@
         <!--Navigation Controller-->
         <scene sceneID="FaS-gZ-kjb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y14-tm-g3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7uR-Vv-aTC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e2X-VI-ZlS">
@@ -562,6 +565,7 @@
                         <segue destination="xkb-ai-HuG" kind="relationship" relationship="rootViewController" id="gsE-Fz-HhR"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y14-tm-g3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2558" y="1539"/>
         </scene>
@@ -576,6 +580,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LD2-9o-50c">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4i-E9-il1">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="맵 위치 기준" id="ofJ-k6-aco">
+                                        <connections>
+                                            <action selector="MoveNearFromMapLocation:" destination="hKH-TH-MvS" id="gN1-jF-rhJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="현재 내 위치 기준" id="61z-IS-bKj">
+                                        <connections>
+                                            <action selector="MoveNearFromMyLocation:" destination="hKH-TH-MvS" id="VYm-rP-sPy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -646,6 +666,21 @@
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="3755.1724137931037"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="jBm-lz-jXd">
+            <objects>
+                <viewController id="UtX-PI-694" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0MP-sE-SKl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="71k-Gy-MVC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CuG-0N-MKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2558" y="4475"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="saz-KX-ee2">
             <objects>
@@ -708,9 +743,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EJR-NU-xxh">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EJR-NU-xxh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axE-4R-YpN">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="맵 위치 기준" id="3UM-XO-o6a">
+                                        <connections>
+                                            <action selector="MoveNearFromMapLocation:" destination="nDW-eD-5oM" id="Tk6-Xg-zxp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="현재 내 위치 기준" id="h8e-1h-nSn">
+                                        <connections>
+                                            <action selector="MoveNearFromMyLocation:" destination="nDW-eD-5oM" id="Dkp-si-9Pb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -734,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZh-as-Xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4462" y="3051"/>
+            <point key="canvasLocation" x="4461.6000000000004" y="3050.8245877061472"/>
         </scene>
         <!--심야약국 지도-->
         <scene sceneID="xZJ-OX-WyN">
@@ -747,6 +798,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TiI-mG-RgO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oG0-uv-Rcr">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="맵 위치 기준" id="vED-wT-9uG">
+                                        <connections>
+                                            <action selector="MoveNearFromMapLocation:" destination="tsk-J2-5Jc" id="n7r-jn-cKU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="현재 내 위치 기준" id="aOR-sM-9Nm">
+                                        <connections>
+                                            <action selector="MoveNearFromMyLocation:" destination="tsk-J2-5Jc" id="yK4-xZ-wuo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -860,7 +927,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xR-GQ-Zfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5401" y="3754"/>
+            <point key="canvasLocation" x="5401" y="3755"/>
         </scene>
     </scenes>
 </document>

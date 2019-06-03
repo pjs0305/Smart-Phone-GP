@@ -25,7 +25,7 @@ class MinbakMapVC: UIViewController, MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    var minbaks : [Minbak] = []
+    var items : [Minbak] = []
     
     func loadInitData()
     {
@@ -40,7 +40,7 @@ class MinbakMapVC: UIViewController, MKMapViewDelegate {
         
             let minbak = Minbak(title: name, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
             
-            minbaks.append(minbak)
+            items.append(minbak)
         }
         
     }
@@ -62,7 +62,7 @@ class MinbakMapVC: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         
         loadInitData()
-        mapView.addAnnotations(minbaks)
+        mapView.addAnnotations(items)
         // Do any additional setup after loading the view.
     }
     

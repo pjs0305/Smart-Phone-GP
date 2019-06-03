@@ -16,21 +16,19 @@
 		A118966022982D5E00F80FCE /* Minbak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118965F22982D5E00F80FCE /* Minbak.swift */; };
 		A118A1712299409700A38B40 /* GoodMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A16F2299409700A38B40 /* GoodMapVC.swift */; };
 		A118A174229940C900A38B40 /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A173229940C900A38B40 /* Good.swift */; };
-		A118A177229941F900A38B40 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A176229941F900A38B40 /* FirstVC.swift */; };
 		A118A17E2299575600A38B40 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A17C2299575600A38B40 /* Food.swift */; };
 		A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A17D2299575600A38B40 /* FoodMapVc.swift */; };
 		A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A18022995B5200A38B40 /* PharmacyMapVC.swift */; };
 		A118A18322995B5200A38B40 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A18122995B5200A38B40 /* Pharmacy.swift */; };
 		A121D769228D214400A8081E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D768228D214400A8081E /* AppDelegate.swift */; };
-		A121D76B228D214400A8081E /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D76A228D214400A8081E /* SecondVC.swift */; };
 		A121D76E228D214400A8081E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A121D76C228D214400A8081E /* Main.storyboard */; };
 		A121D770228D214500A8081E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A121D76F228D214500A8081E /* Assets.xcassets */; };
 		A121D773228D214500A8081E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A121D771228D214500A8081E /* LaunchScreen.storyboard */; };
-		A121D77B228D21D800A8081E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121D77A228D21D800A8081E /* PageViewController.swift */; };
 		A17D2E6122A2F16100CF03F7 /* GoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */; };
-		A17D2E6622A3074600CF03F7 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = A17D2E6522A3074600CF03F7 /* Resource */; };
 		A17D2E6B22A310DF00CF03F7 /* PharmacyDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */; };
 		A17D2E6D22A3110800CF03F7 /* FoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */; };
+		A1D8086C22A3EAF800B2C34E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8086B22A3EAF800B2C34E /* PageViewController.swift */; };
+		A1D8086E22A3F70E00B2C34E /* InPvcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8086D22A3F70E00B2C34E /* InPvcVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,24 +41,22 @@
 		A118965F22982D5E00F80FCE /* Minbak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minbak.swift; sourceTree = "<group>"; };
 		A118A16F2299409700A38B40 /* GoodMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodMapVC.swift; sourceTree = "<group>"; };
 		A118A173229940C900A38B40 /* Good.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
-		A118A176229941F900A38B40 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		A118A17C2299575600A38B40 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		A118A17D2299575600A38B40 /* FoodMapVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMapVc.swift; sourceTree = "<group>"; };
 		A118A18022995B5200A38B40 /* PharmacyMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyMapVC.swift; sourceTree = "<group>"; };
 		A118A18122995B5200A38B40 /* Pharmacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		A121D765228D214400A8081E /* Term Project Jeju.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Project Jeju.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A121D768228D214400A8081E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A121D76A228D214400A8081E /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		A121D76D228D214400A8081E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A121D76F228D214500A8081E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A121D772228D214500A8081E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A121D774228D214500A8081E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A121D77A228D21D800A8081E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodDetailTVC.swift; sourceTree = "<group>"; };
-		A17D2E6522A3074600CF03F7 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
 		A17D2E6722A3089F00CF03F7 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyDetailTVC.swift; sourceTree = "<group>"; };
 		A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailTVC.swift; sourceTree = "<group>"; };
+		A1D8086B22A3EAF800B2C34E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		A1D8086D22A3F70E00B2C34E /* InPvcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPvcVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +94,6 @@
 		A118A175229941D800A38B40 /* First Page */ = {
 			isa = PBXGroup;
 			children = (
-				A118A176229941F900A38B40 /* FirstVC.swift */,
 				A118965E229827CA00F80FCE /* MinBak */,
 				A118A16E2299402700A38B40 /* Good */,
 				A118A1782299529600A38B40 /* Festival */,
@@ -117,7 +112,6 @@
 		A118A179229952C100A38B40 /* Second Page */ = {
 			isa = PBXGroup;
 			children = (
-				A121D76A228D214400A8081E /* SecondVC.swift */,
 				A118A17A229952E800A38B40 /* Food */,
 				A118A17B229952F000A38B40 /* Pharmacy */,
 			);
@@ -165,12 +159,12 @@
 		A121D767228D214400A8081E /* Term Project Jeju */ = {
 			isa = PBXGroup;
 			children = (
-				A17D2E6522A3074600CF03F7 /* Resource */,
+				A1D8086B22A3EAF800B2C34E /* PageViewController.swift */,
+				A1D8086D22A3F70E00B2C34E /* InPvcVC.swift */,
 				A118A175229941D800A38B40 /* First Page */,
 				A118A179229952C100A38B40 /* Second Page */,
 				A121D768228D214400A8081E /* AppDelegate.swift */,
 				A121D76C228D214400A8081E /* Main.storyboard */,
-				A121D77A228D21D800A8081E /* PageViewController.swift */,
 				A121D76F228D214500A8081E /* Assets.xcassets */,
 				A17D2E6722A3089F00CF03F7 /* car.png */,
 				A121D771228D214500A8081E /* LaunchScreen.storyboard */,
@@ -237,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17D2E6622A3074600CF03F7 /* Resource in Resources */,
 				A121D773228D214500A8081E /* LaunchScreen.storyboard in Resources */,
 				A121D770228D214500A8081E /* Assets.xcassets in Resources */,
 				A121D76E228D214400A8081E /* Main.storyboard in Resources */,
@@ -251,18 +244,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A121D77B228D21D800A8081E /* PageViewController.swift in Sources */,
 				A118966022982D5E00F80FCE /* Minbak.swift in Sources */,
-				A121D76B228D214400A8081E /* SecondVC.swift in Sources */,
 				A11896592297EB9300F80FCE /* FoodVC.swift in Sources */,
 				A118A18322995B5200A38B40 /* Pharmacy.swift in Sources */,
 				A17D2E6B22A310DF00CF03F7 /* PharmacyDetailTVC.swift in Sources */,
 				A121D769228D214400A8081E /* AppDelegate.swift in Sources */,
 				A11896492297B80000F80FCE /* GoodVC.swift in Sources */,
-				A118A177229941F900A38B40 /* FirstVC.swift in Sources */,
 				A118A17E2299575600A38B40 /* Food.swift in Sources */,
 				A17D2E6D22A3110800CF03F7 /* FoodDetailTVC.swift in Sources */,
 				A118A174229940C900A38B40 /* Good.swift in Sources */,
+				A1D8086C22A3EAF800B2C34E /* PageViewController.swift in Sources */,
 				A11896572297E53100F80FCE /* FestivalVC.swift in Sources */,
 				A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */,
 				A118965B2297F61B00F80FCE /* PharmacyVC.swift in Sources */,
@@ -271,6 +262,7 @@
 				A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */,
 				A118965D229827C100F80FCE /* MinbakMapVC.swift in Sources */,
 				A118A1712299409700A38B40 /* GoodMapVC.swift in Sources */,
+				A1D8086E22A3F70E00B2C34E /* InPvcVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
