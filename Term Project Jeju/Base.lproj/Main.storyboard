@@ -584,12 +584,12 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="맵 위치 기준" id="ofJ-k6-aco">
+                                    <barButtonItem title="맵 위치 기준" image="Image-1" style="done" id="ofJ-k6-aco">
                                         <connections>
                                             <action selector="MoveNearFromMapLocation:" destination="hKH-TH-MvS" id="gN1-jF-rhJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="현재 내 위치 기준" id="61z-IS-bKj">
+                                    <barButtonItem image="Image" id="61z-IS-bKj">
                                         <connections>
                                             <action selector="MoveNearFromMyLocation:" destination="hKH-TH-MvS" id="VYm-rP-sPy"/>
                                         </connections>
@@ -607,7 +607,9 @@
                         <viewLayoutGuide key="safeArea" id="fjD-yw-RsK"/>
                     </view>
                     <navigationItem key="navigationItem" id="hq4-kH-6vH">
-                        <barButtonItem key="rightBarButtonItem" title="내 위치" id="ulI-q5-f83">
+                        <barButtonItem key="rightBarButtonItem" image="person" id="ulI-q5-f83">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-30" maxY="0.0"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="110" maxY="0.0"/>
                             <connections>
                                 <action selector="userlocation:" destination="hKH-TH-MvS" id="q9P-m3-fb0"/>
                             </connections>
@@ -773,7 +775,8 @@
                         <viewLayoutGuide key="safeArea" id="xfp-V2-ohA"/>
                     </view>
                     <navigationItem key="navigationItem" id="YSZ-wX-f08">
-                        <barButtonItem key="rightBarButtonItem" title="내 위치" id="6Dx-X6-fMN">
+                        <barButtonItem key="rightBarButtonItem" title="내 위치" image="person" id="6Dx-X6-fMN">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-30" maxY="0.0"/>
                             <connections>
                                 <action selector="userlocation:" destination="nDW-eD-5oM" id="aKA-Yg-OIx"/>
                             </connections>
@@ -825,7 +828,8 @@
                         <viewLayoutGuide key="safeArea" id="qSV-cl-gcH"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZvT-wk-ats">
-                        <barButtonItem key="rightBarButtonItem" title="내 위치" id="JKP-hb-f68">
+                        <barButtonItem key="rightBarButtonItem" title="내 위치" image="person" id="JKP-hb-f68">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-30" maxY="0.0"/>
                             <connections>
                                 <action selector="userlocation:" destination="tsk-J2-5Jc" id="d16-fP-iPg"/>
                             </connections>
@@ -930,4 +934,9 @@
             <point key="canvasLocation" x="5401" y="3755"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="87.5" height="127.5"/>
+        <image name="Image-1" width="256" height="256"/>
+        <image name="person" width="110.5" height="127"/>
+    </resources>
 </document>

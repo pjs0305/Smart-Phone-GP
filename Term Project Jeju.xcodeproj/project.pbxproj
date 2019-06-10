@@ -52,7 +52,6 @@
 		A121D772228D214500A8081E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A121D774228D214500A8081E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodDetailTVC.swift; sourceTree = "<group>"; };
-		A17D2E6722A3089F00CF03F7 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyDetailTVC.swift; sourceTree = "<group>"; };
 		A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailTVC.swift; sourceTree = "<group>"; };
 		A1D8086B22A3EAF800B2C34E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +165,6 @@
 				A121D768228D214400A8081E /* AppDelegate.swift */,
 				A121D76C228D214400A8081E /* Main.storyboard */,
 				A121D76F228D214500A8081E /* Assets.xcassets */,
-				A17D2E6722A3089F00CF03F7 /* car.png */,
 				A121D771228D214500A8081E /* LaunchScreen.storyboard */,
 				A121D774228D214500A8081E /* Info.plist */,
 			);
