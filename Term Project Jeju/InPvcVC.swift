@@ -17,6 +17,20 @@ class InPvcVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func Good(_ sender: Any) {
+        print(GoodVC.posts.count)
+        if(GoodVC.posts.count == 0)
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodLoadingVC") as! GoodLoadingVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodVC") as! GoodVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+    }
+    
     @IBAction func doneToViewController(segue:UIStoryboardSegue)
     {
         

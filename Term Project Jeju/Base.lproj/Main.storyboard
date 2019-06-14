@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeU-FV-n5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="3051"/>
+            <point key="canvasLocation" x="1598" y="3023"/>
         </scene>
         <!--PageOne-->
         <scene sceneID="YHU-pU-dWW">
@@ -155,7 +155,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="착한업소 정보"/>
                                 <connections>
-                                    <segue destination="7uR-Vv-aTC" kind="show" id="mib-wW-qyC"/>
+                                    <action selector="Good:" destination="Sfj-I8-tt6" eventType="touchUpInside" id="ujg-K5-whD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -245,7 +245,7 @@
         <!--착한 업소 정보-->
         <scene sceneID="KTh-fI-f2J">
             <objects>
-                <viewController title="착한 업소 정보" id="xkb-ai-HuG" customClass="GoodVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoodVC" title="착한 업소 정보" id="xkb-ai-HuG" customClass="GoodVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ToF-JF-GcR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,6 +313,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rkg-hN-ocz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6v3-0E-A5y" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2558" y="3022"/>
+        </scene>
+        <!--Good LoadingVC-->
+        <scene sceneID="AxU-8c-N4L">
+            <objects>
+                <viewController storyboardIdentifier="GoodLoadingVC" id="hTD-Ak-xbX" customClass="GoodLoadingVC" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K1l-k0-PXe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q93-HY-sri" customClass="CounterView" customModule="Term_Project_Jeju" customModuleProvider="target">
+                                <rect key="frame" x="67" y="213" width="240" height="240"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97C-w5-n2L" customClass="CounterLabelView" customModule="Term_Project_Jeju" customModuleProvider="target">
+                                        <rect key="frame" x="96.5" y="102" width="47" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="97C-w5-n2L" firstAttribute="centerY" secondItem="q93-HY-sri" secondAttribute="centerY" id="6GE-jd-MAp"/>
+                                    <constraint firstAttribute="height" constant="240" id="HMk-IN-FOh"/>
+                                    <constraint firstItem="97C-w5-n2L" firstAttribute="centerX" secondItem="q93-HY-sri" secondAttribute="centerX" id="YzU-xf-rQq"/>
+                                    <constraint firstAttribute="width" constant="240" id="lq8-3y-Y9o"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q93-HY-sri" firstAttribute="centerY" secondItem="6n6-vt-o5V" secondAttribute="centerY" id="dOP-Sk-2Bl"/>
+                            <constraint firstItem="q93-HY-sri" firstAttribute="centerX" secondItem="6n6-vt-o5V" secondAttribute="centerX" id="poX-c7-aY3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6n6-vt-o5V"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="w6m-Dy-rNX"/>
+                    <connections>
+                        <outlet property="counterlabel" destination="97C-w5-n2L" id="7DC-Cx-Czc"/>
+                        <outlet property="counterview" destination="q93-HY-sri" id="G0k-EZ-6l5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="irh-T6-12V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2558" y="2292"/>
         </scene>
@@ -551,24 +595,6 @@
             </objects>
             <point key="canvasLocation" x="1598" y="1539"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FaS-gZ-kjb">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7uR-Vv-aTC" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e2X-VI-ZlS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xkb-ai-HuG" kind="relationship" relationship="rootViewController" id="gsE-Fz-HhR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y14-tm-g3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2558" y="1539"/>
-        </scene>
         <!--착한 업소 지도-->
         <scene sceneID="o35-II-hSf">
             <objects>
@@ -578,18 +604,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LD2-9o-50c">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4i-E9-il1">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="맵 위치 기준" image="Image-1" style="done" id="ofJ-k6-aco">
+                                    <barButtonItem title="Item" style="done" id="ofJ-k6-aco">
+                                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <action selector="MoveNearFromMapLocation:" destination="hKH-TH-MvS" id="gN1-jF-rhJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="Image" id="61z-IS-bKj">
+                                    <barButtonItem title="Item" id="61z-IS-bKj">
                                         <connections>
                                             <action selector="MoveNearFromMyLocation:" destination="hKH-TH-MvS" id="VYm-rP-sPy"/>
                                         </connections>
@@ -621,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oV0-A1-yUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="3051"/>
+            <point key="canvasLocation" x="2558" y="3725"/>
         </scene>
         <!--Good DetailTVC-->
         <scene sceneID="uva-e1-Q0j">
@@ -666,7 +693,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GW8-YD-cOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="3755.1724137931037"/>
+            <point key="canvasLocation" x="2558" y="4459"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jBm-lz-jXd">
@@ -681,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CuG-0N-MKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="4475"/>
+            <point key="canvasLocation" x="2558" y="5178"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="saz-KX-ee2">
@@ -788,7 +815,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZh-as-Xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4461.6000000000004" y="3050.8245877061472"/>
+            <point key="canvasLocation" x="4462" y="3023"/>
         </scene>
         <!--심야약국 지도-->
         <scene sceneID="xZJ-OX-WyN">
@@ -841,7 +868,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="89o-r4-qtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5401" y="3051"/>
+            <point key="canvasLocation" x="5401" y="3023"/>
         </scene>
         <!--Pharmacy DetailTVC-->
         <scene sceneID="Z7A-Pe-I97">
@@ -886,7 +913,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTX-zV-blP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4462" y="3755"/>
+            <point key="canvasLocation" x="4462" y="3726"/>
         </scene>
         <!--Food DetailTVC-->
         <scene sceneID="Nn1-t0-5D1">
@@ -931,12 +958,28 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xR-GQ-Zfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5401" y="3755"/>
+            <point key="canvasLocation" x="5401" y="3726"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kPk-0O-f3X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Zi-m5-GD6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zIb-as-beA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hTD-Ak-xbX" kind="relationship" relationship="rootViewController" id="s3f-85-h73"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jDf-UX-sM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2558" y="1539"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="87.5" height="127.5"/>
-        <image name="Image-1" width="256" height="256"/>
         <image name="person" width="110.5" height="127"/>
     </resources>
 </document>
