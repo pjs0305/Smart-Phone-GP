@@ -53,7 +53,6 @@ class GoodVC: UIViewController, XMLParserDelegate, UITableViewDataSource {
                 let lon = (posx as NSString).doubleValue
                 
                 mapVC.initlocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                mapVC.posts = GoodVC.posts
             }
         }
     }

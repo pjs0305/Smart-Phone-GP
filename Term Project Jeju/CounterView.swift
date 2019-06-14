@@ -33,7 +33,8 @@ class CounterView: UIView {
         }
     }
     
-    @IBInspectable var outlineColor: UIColor = UIColor(red: 0, green: 0.75, blue: 1, alpha: 1)
+    @IBInspectable var outlineColor: UIColor = .black
+    @IBInspectable var fillColor: UIColor = UIColor(red: 0, green: 0.75, blue: 1, alpha: 1)
     @IBInspectable var counterColor: UIColor = .gray
     
     override func draw(_ rect: CGRect) {
@@ -49,7 +50,7 @@ class CounterView: UIView {
         let endangle : CGFloat = .pi / 4
         
         // 4. 패스 설정
-        let path = UIBezierPath(arcCenter: center, radius: radius/2 - constants.arcWidth/2, startAngle: startangle, endAngle: endangle, clockwise: true)
+        let path = UIBezierPath(arcCenter: center, radius: radius/2 - constants.arcWidth/2 - 2.5, startAngle: startangle, endAngle: endangle, clockwise: true)
         
         // 5. 스트로크
         path.lineWidth = constants.arcWidth
@@ -57,31 +58,24 @@ class CounterView: UIView {
         path.stroke()
         
         // 아웃라인 그리기
-        
-        // 1 - 두 각도 사이의 차이 270 계산
-        let angleDiff : CGFloat = 2 * .pi - startangle + endangle
-        
-        // 물한잔에 해당하는 각도 계산 = 270/8
-        let arclengthperglass = angleDiff / CGFloat(constants.numberOfGlasses)
-        
-        // counter 변수를 이용해서 실제 그릴 각도 계산
-        let outlineendangle = arclengthperglass * CGFloat(counter) + startangle
-        
-        // 2 - 바깥쪽 아크 그리기, 반지름이 크다
-        let outlinepath = UIBezierPath(arcCenter: center, radius: bounds.width/2 - 2.5, startAngle: startangle, endAngle: outlineendangle, clockwise: true)
-        
-        // 3 - 안쪽 아크 그리기, 반지름이 작다
-        outlinepath.addArc(withCenter: center, radius: bounds.width/2 - constants.arcWidth + 2.5, startAngle: outlineendangle, endAngle: startangle, clockwise: false)
-        
-        // 4 - 크로우즈패스로 설정하고 스트로크
-        outlinepath.close()
-        
-        outlinepath.lineWidth = 5.0
-        
-        outlineColor.setFill()
-        outlinepath.fill()
+        let outlinepath = UIBezierPath(arcCenter: center, radius: bounds.width/2 - 1, startAngle: startangle, endAngle: endangle, clockwise: true)
+        outlinepath.addArc(withCenter: center, radius: bounds.width/2 - constants.arcWidth - 1, startAngle: endangle, endAngle: startangle, clockwise: false)
+        outlinepath.lineWidth = 3.0
         outlineColor.setStroke()
         outlinepath.stroke()
+    
+        let angleDiff : CGFloat = 2 * .pi - startangle + endangle
+        let arclengthperglass = angleDiff / CGFloat(constants.numberOfGlasses)
+        let fillendangle = arclengthperglass * CGFloat(counter) + startangle
+        
+        let fillpath = UIBezierPath(arcCenter: center, radius: bounds.width/2 - 2.5, startAngle: startangle, endAngle: fillendangle, clockwise: true)
+        fillpath.addArc(withCenter: center, radius: bounds.width/2 - constants.arcWidth + 1.0, startAngle: fillendangle, endAngle: startangle, clockwise: false)
+        
+        // 4 - 크로우즈패스로 설정하고 스트로크
+        fillpath.close()
+        fillpath.lineWidth = 5.0
+        fillColor.setFill()
+        fillpath.fill()
     }
     
     // 점수가 올라갈 때 한 번에 올라가지 않기 위한 변수

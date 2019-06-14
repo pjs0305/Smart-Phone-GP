@@ -26,7 +26,7 @@ class InPvcVC: UIViewController {
         }
         else
         {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodVC") as! GoodVC
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodMapVC") as! GoodMapVC
             self.navigationController!.pushViewController(vc, animated: true)
         }
     }

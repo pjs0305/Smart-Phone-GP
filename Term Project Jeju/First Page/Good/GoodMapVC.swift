@@ -31,7 +31,6 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     @IBOutlet var mapView : MKMapView!
     
     let locationManager = CLLocationManager()
-    var posts = NSMutableArray()
     var initlocation = CLLocationCoordinate2D()
     
     let regionRadius : CLLocationDistance = 5000
@@ -54,7 +53,7 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     
     func loadInitData()
     {
-        for post in posts
+        for post in GoodVC.posts
         {
             let mapx = (post as AnyObject).value(forKey: "posy") as! NSString as String
             let mapy = (post as AnyObject).value(forKey: "posx") as! NSString as String

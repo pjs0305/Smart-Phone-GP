@@ -7,12 +7,37 @@
 //
 
 import UIKit
+import MapKit
+import SpriteKit
 
 class GoodLoadingVC: UIViewController, XMLParserDelegate {
     
     @IBOutlet var counterview : CounterView!
     @IBOutlet var counterlabel : CounterLabelView!
+    @IBOutlet var loadinglabel : CounterLabelView!
+    @IBOutlet var nextbutton: UIButton!
+    @IBOutlet weak var toy: UIButton!
     
+    @IBAction func move(_ sender: Any) {
+        self.audioController.playerEffect(name: SoundDing)
+        
+        self.particle.emit()
+        
+        let duration = Double(randomNumber(minX: 5, maxX: 10)) / 10.0
+        let point = CGPoint(x:randomNumber(minX: 0, maxX: UInt32(ScreenWidth - 50) ), y : randomNumber(minX: 0, maxX: UInt32(ScreenHeight - 50) ))
+        let transorm = CGAffineTransform(rotationAngle: CGFloat(randomNumber(minX: 0, maxX: 360)))
+        
+        UIView.animate(withDuration: duration, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.toy.center = point
+            self.toy.transform = transorm
+            self.particle.center = point
+        }, completion:{ (finished: Bool) in
+            self.particle.stopemit()
+        }
+        )
+    }
+    
+    var particle = ExplodeView(frame: CGRect(x: ScreenWidth/2, y: ScreenHeight/2, width: 10, height: 10))
     var parser = XMLParser()
     
     // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
@@ -32,9 +57,27 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
     var total : Int = 100
     var count : Int = 0
     
-    override func viewDidLoad() {
-        let background = UIImage(named: "돌하르방.jpg")
+    var audioController : AudioController
+   
+    
+    required init?(coder aDecoder: NSCoder) {
+        audioController = AudioController()
+        audioController.preloadAudioEffects(audioFileNames: AudioEffectfFiles)
         
+        super.init(coder: aDecoder)
+    }
+    
+    override func viewDidLoad() {
+        self.nextbutton.isEnabled = false
+        self.view.addSubview(particle)
+        
+        let toyimage = UIImage(named: toylist[randomNumber(minX: 0, maxX: UInt32(toylist.count - 1))])
+        toy.setImage(toyimage, for: UIControl.State.normal)
+        toy.center = CGPoint(x:randomNumber(minX: 0, maxX: UInt32(ScreenWidth - 50)), y : randomNumber(minX: 0, maxX: UInt32(ScreenHeight - 50)))
+        particle.center = toy.center
+        
+        let background = UIImage(named: "돌하르방.jpg")
+    
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleToFill
@@ -44,8 +87,13 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
         
+        
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        
+        counterlabel.tailtext = "%"
+        counterlabel.changecolor = true
+        loadinglabel.tailtext = "개의 착한 업소를 발견하였습니다."
         
         if(GoodVC.posts.count == 0)
         {
@@ -68,15 +116,21 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
                 while(self.counterlabel.value != 100){}
                 
                 DispatchQueue.main.async {
-                    self.LoadComplete()
+                    self.nextbutton.isEnabled = true
                 }
             }
         }
     }
     
-    func LoadComplete()
-    {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodVC") as! GoodVC
+    @IBAction func Next(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodMapVC") as! GoodMapVC
+        
+        let posy = (GoodVC.posts.object(at: 0) as AnyObject).value(forKey: "posy") as! NSString as String
+        let posx = (GoodVC.posts.object(at: 0) as AnyObject).value(forKey: "posx") as! NSString as String
+        let lat = (posy as NSString).doubleValue
+        let lon = (posx as NSString).doubleValue
+        
+        vc.initlocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         self.navigationController!.pushViewController(vc, animated: true)
     }
     
@@ -127,6 +181,7 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
                 self.counterview.setValue(newValue: self.count, duration: 0.5)
                 let percent : Int = Int(Float(self.count) / Float(self.total) * 100.0)
                 self.counterlabel.setValue(newValue: percent, duration: 0.5)
+                self.loadinglabel.setValue(newValue: self.count, duration: 0.5)
             }
         }
         

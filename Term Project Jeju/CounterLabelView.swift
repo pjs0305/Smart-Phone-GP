@@ -18,14 +18,20 @@ class CounterLabelView: UILabel
         // 2. 변수가 바뀔 때마다 감시하고 있다가 label을 변경
         didSet
         {
-            self.text = "\(value)%"
-            self.textColor = UIColor(red: 0, green: 0, blue: CGFloat(Double(value)/100.0), alpha: 1)
+            self.text = "\(value)"+tailtext
+            
+            if (changecolor == true)
+            {
+                self.textColor = UIColor(red: 0, green: 0, blue: CGFloat(Double(value)/100.0), alpha: 1)
+            }
         }
     }
     
     // 점수가 올라갈 때 한 번에 올라가지 않기 위한 변수
     var endValue : Int = 0
     var timer: Timer? = nil
+    var tailtext : String! = ""
+    var changecolor = false
     
     // timer에서 호출되는 메소드 매 timer even마다 value을 1 증감
     // value의 didSet에 의해서 변경을 감지하여 라벨을 변경
