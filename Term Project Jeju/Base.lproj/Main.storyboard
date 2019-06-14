@@ -30,35 +30,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-Lt-D3G">
-                                <rect key="frame" x="100" y="170" width="175" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="농어촌 민박 정보"/>
-                                <connections>
-                                    <action selector="Minbak:" destination="Sfj-I8-tt6" eventType="touchUpInside" id="qHw-ZD-aqg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-yJ-fKe">
-                                <rect key="frame" x="100" y="302" width="175" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="착한업소 정보"/>
+                                <rect key="frame" x="62.5" y="293.5" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="pCc-7C-DFb"/>
+                                    <constraint firstAttribute="height" constant="100" id="xEI-PK-7VC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="착한업소 정보" backgroundImage="banner2.png">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="Good:" destination="Sfj-I8-tt6" eventType="touchUpInside" id="ujg-K5-whD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-Lt-D3G">
+                                <rect key="frame" x="62" y="120" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Idf-8n-zQ6"/>
+                                    <constraint firstAttribute="width" constant="250" id="vIV-wr-hpD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="농어촌 민박 정보" backgroundImage="banner.png">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Minbak:" destination="Sfj-I8-tt6" eventType="touchUpInside" id="qHw-ZD-aqg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="0dL-JK-mJA"/>
-                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="leading" secondItem="c38-6w-3eL" secondAttribute="leading" constant="100" id="0lc-t6-gze"/>
-                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="88" id="Aqb-R0-gD9"/>
-                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="top" secondItem="c38-6w-3eL" secondAttribute="top" constant="150" id="HCP-tz-tvV"/>
-                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="88" id="sKZ-cg-Pua"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="xDp-Lt-D3G" secondAttribute="trailing" constant="100" id="w6s-rj-9xo"/>
-                            <constraint firstItem="c38-6w-3eL" firstAttribute="trailing" secondItem="P6Q-yJ-fKe" secondAttribute="trailing" constant="100" id="zgL-YR-ySn"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="top" secondItem="xDp-Lt-D3G" secondAttribute="bottom" constant="73.5" id="5jt-42-9br"/>
+                            <constraint firstItem="xDp-Lt-D3G" firstAttribute="centerX" secondItem="c38-6w-3eL" secondAttribute="centerX" id="Iua-Ke-rP4"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="centerY" secondItem="c38-6w-3eL" secondAttribute="centerY" id="LCd-pZ-rIV"/>
+                            <constraint firstItem="P6Q-yJ-fKe" firstAttribute="centerX" secondItem="c38-6w-3eL" secondAttribute="centerX" id="zVY-hJ-H8N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c38-6w-3eL"/>
                     </view>
+                    <connections>
+                        <outlet property="good" destination="P6Q-yJ-fKe" id="JnO-Kr-k3b"/>
+                        <outlet property="minbak" destination="xDp-Lt-D3G" id="4C5-OD-8QX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAX-X0-3eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,16 +87,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-11-Zeg">
-                                <rect key="frame" x="100" y="170" width="175" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-11-Zeg">
+                                <rect key="frame" x="100" y="170" width="250" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="모범 음식점 정보"/>
                                 <connections>
                                     <action selector="Food:" destination="hQG-8v-sZh" eventType="touchUpInside" id="8jQ-np-O8P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-qG-L7I">
-                                <rect key="frame" x="100" y="302" width="175" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-qG-L7I">
+                                <rect key="frame" x="100" y="302" width="250" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="심야약국정보"/>
                                 <connections>
@@ -102,6 +117,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vy2-kI-Xd8"/>
                     </view>
+                    <connections>
+                        <outlet property="food" destination="t5l-11-Zeg" id="iuW-wm-UeR"/>
+                        <outlet property="phar" destination="CYq-qG-L7I" id="9zD-Th-01S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDX-D2-RC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -977,6 +996,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="banner.png" width="3663" height="1255"/>
+        <image name="banner2.png" width="3658" height="1248"/>
         <image name="maps" width="256" height="256"/>
         <image name="my" width="87.5" height="127.5"/>
         <image name="person" width="110.5" height="127"/>

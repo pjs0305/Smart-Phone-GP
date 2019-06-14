@@ -73,6 +73,16 @@ class MinbakLoadingVC: UIViewController, XMLParserDelegate {
         toy.center = CGPoint(x:randomNumber(minX: 0, maxX: UInt32(ScreenWidth - 50)), y : randomNumber(minX: 0, maxX: UInt32(ScreenHeight - 50)))
         particle.center = toy.center
         
+        let background = UIImage(named: "돌하르방.jpg")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleToFill
+        imageView.clipsToBounds = false
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
         
         
         super.viewDidLoad()

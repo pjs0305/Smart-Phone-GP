@@ -8,12 +8,37 @@
 
 import UIKit
 
+@IBDesignable
 class InPvcVC: UIViewController {
     var pageIndex : Int! = 0
-
+    @IBOutlet weak var minbak: UIButton!
+    @IBOutlet weak var good: UIButton!
+    @IBOutlet weak var food: UIButton!
+    @IBOutlet weak var phar: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        minbak.layer.cornerRadius = 10
+        minbak.layer.masksToBounds = true
+        minbak.layer.borderWidth = 5
+        minbak.layer.borderColor = UIColor.black.cgColor
+        
+        good.layer.cornerRadius = 10
+        good.layer.masksToBounds = true
+        good.layer.borderWidth = 5
+        good.layer.borderColor = UIColor.black.cgColor
+        
+        food.layer.cornerRadius = 10
+        food.layer.masksToBounds = true
+        food.layer.borderWidth = 5
+        food.layer.borderColor = UIColor.black.cgColor
+        
+        phar.layer.cornerRadius = 10
+        phar.layer.masksToBounds = true
+        phar.layer.borderWidth = 5
+        phar.layer.borderColor = UIColor.black.cgColor
+        
         self.view.backgroundColor = UIColor(white: 1, alpha: 0)
         // Do any additional setup after loading the view.
     }
@@ -22,12 +47,12 @@ class InPvcVC: UIViewController {
         if(MinbakMapVC.posts.count == 0)
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakLoadingVC") as! MinbakLoadingVC
-            self.navigationController!.pushViewController(vc, animated: false)
+            self.navigationController!.pushViewController(vc, animated: true)
         }
         else
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakMapVC") as! MinbakMapVC
-            self.navigationController!.pushViewController(vc, animated: false)
+            self.navigationController!.pushViewController(vc, animated: true)
         }
     }
     
