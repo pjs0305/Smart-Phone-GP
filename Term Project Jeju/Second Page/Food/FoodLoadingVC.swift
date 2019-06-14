@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import SpriteKit
 
-class GoodLoadingVC: UIViewController, XMLParserDelegate {
+class FoodLoadingVC: UIViewController, XMLParserDelegate {
     
     @IBOutlet var counterview : CounterView!
     @IBOutlet var counterlabel : CounterLabelView!
@@ -44,12 +44,11 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
     var elements = NSMutableDictionary()
     var element = NSString()
     
-    var baseurl : String! = "http://data.jeju.go.kr/rest/goodshop/getGoodShopList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=10"
+    var baseurl : String! = "http://data.jeju.go.kr/rest/besteating/getEatingList?serviceKey=7Z3e6MM%2BZVra4DYqS7dDT%2Bsfh%2Fw2JlIBVc4uE9Xc%2FEKVgineKHp9fvznQMmblhdNhsBaCa2S31NGHVGY2j9gLg%3D%3D&pageSize=10"
     
     var parameters : [String] =
-        ["area"/*시*/, "adres"/*주소*/, "appnPrdlstPc"/*지정품목 및 가격*/, "bsnTime"/*영업 시간*/,
-            "dataContent"/*상세*/, "dataTitle"/*업소명*/, "hvofSttus"/*휴무 상태*/, "induty"/*업종*/,
-            "posx"/*경도*/, "posy"/*위도*/, "regDate"/*등록일*/, "telNo"/*전화번호*/]
+        ["adres"/*주소*/, "bizcnd"/*업태*/, "dataTitle"/*업소명*/, "la",/*위도*/
+            "lo"/*경도*/, "menu"/*메뉴*/, "regDate"/*작성일*/, "telNo"/*전화번호*/]
     
     var datas : [String: NSMutableString] = [:]
     
@@ -59,7 +58,6 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
     
     var audioController : AudioController
    
-    
     required init?(coder aDecoder: NSCoder) {
         audioController = AudioController()
         audioController.preloadAudioEffects(audioFileNames: AudioEffectfFiles)
@@ -94,9 +92,9 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
         
         counterlabel.tailtext = "%"
         counterlabel.changecolor = true
-        loadinglabel.tailtext = "개의 착한 업소를 발견하였습니다."
+        loadinglabel.tailtext = "개의 모범 음식점을 발견하였습니다."
         
-        if(GoodMapVC.posts.count == 0)
+        if(FoodMapVC.posts.count == 0)
         {
             DispatchQueue.global(qos: .background).async {
                 
@@ -124,7 +122,7 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
     }
     
     @IBAction func Next(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodMapVC") as! GoodMapVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FoodMapVC") as! FoodMapVC
         self.navigationController!.pushViewController(vc, animated: true)
     }
     
@@ -169,7 +167,7 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
         
         if element.isEqual(to: "pageSize")
         {
-            count = GoodMapVC.posts.count
+            count = FoodMapVC.posts.count
             
             DispatchQueue.main.async {
                 self.counterview.setValue(newValue: self.count, duration: 0.5)
@@ -201,7 +199,7 @@ class GoodLoadingVC: UIViewController, XMLParserDelegate {
                 }
             }
             
-            GoodMapVC.posts.add(elements)
+            FoodMapVC.posts.add(elements)
         }
     }
     

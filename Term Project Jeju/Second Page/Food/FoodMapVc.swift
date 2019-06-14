@@ -28,6 +28,7 @@ extension FoodMapVC: UISearchBarDelegate {
 class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
+    static var posts = NSMutableArray()
     
     let locationManager = CLLocationManager()
     var posts = NSMutableArray()
@@ -53,7 +54,7 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     
     func loadInitData()
     {
-        for post in posts
+        for post in FoodMapVC.posts
         {
             let addr = (post as AnyObject).value(forKey: "adres") as! NSString as String
             let dataTitle = (post as AnyObject).value(forKey: "dataTitle") as! NSString as String
@@ -181,7 +182,11 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
             mapView.addAnnotations(items[key]!)
         }
         
-        centerMapOnLocation(location: initlocation)
+        let la = (FoodMapVC.posts.object(at: 0) as AnyObject).value(forKey: "la") as! NSString as String
+        let lo = (FoodMapVC.posts.object(at: 0) as AnyObject).value(forKey: "lo") as! NSString as String
+        let lat = (la as NSString).doubleValue
+        let lon = (lo as NSString).doubleValue
+        centerMapOnLocation(location: CLLocationCoordinate2D(latitude: lat, longitude: lon))
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?

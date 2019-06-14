@@ -12,6 +12,7 @@ import MapKit
 class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
+    static var posts = NSMutableArray()
     
     let locationManager = CLLocationManager()
     var posts = NSMutableArray()
@@ -36,7 +37,7 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     func loadInitData()
     {
-        for post in posts
+        for post in PharmacyMapVC.posts
         {
             let la = (post as AnyObject).value(forKey: "la") as! NSString as String
             let lo = (post as AnyObject).value(forKey: "lo") as! NSString as String
@@ -115,7 +116,12 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         mapView.delegate = self
         self.locationManager.requestAlwaysAuthorization()
         loadInitData()
-        centerMapOnLocation(location: initlocation)
+        
+        let la = (PharmacyMapVC.posts.object(at: 0) as AnyObject).value(forKey: "la") as! NSString as String
+        let lo = (PharmacyMapVC.posts.object(at: 0) as AnyObject).value(forKey: "lo") as! NSString as String
+        let lat = (la as NSString).doubleValue
+        let lon = (lo as NSString).doubleValue
+        centerMapOnLocation(location: CLLocationCoordinate2D(latitude: lat, longitude: lon))
         
         mapView.addAnnotations(items)
         // Do any additional setup after loading the view.

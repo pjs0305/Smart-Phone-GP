@@ -29,6 +29,7 @@ extension GoodMapVC: UISearchBarDelegate {
 class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
+    static var posts = NSMutableArray()
     
     let locationManager = CLLocationManager()
     var initlocation = CLLocationCoordinate2D()
@@ -53,7 +54,7 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     
     func loadInitData()
     {
-        for post in GoodVC.posts
+        for post in GoodMapVC.posts
         {
             let mapx = (post as AnyObject).value(forKey: "posy") as! NSString as String
             let mapy = (post as AnyObject).value(forKey: "posx") as! NSString as String
@@ -183,7 +184,11 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
             mapView.addAnnotations(items[key]!)
         }
         
-        centerMapOnLocation(location: initlocation)
+        let posy = (GoodMapVC.posts.object(at: 0) as AnyObject).value(forKey: "posy") as! NSString as String
+        let posx = (GoodMapVC.posts.object(at: 0) as AnyObject).value(forKey: "posx") as! NSString as String
+        let lat = (posy as NSString).doubleValue
+        let lon = (posx as NSString).doubleValue
+        centerMapOnLocation(location: CLLocationCoordinate2D(latitude: lat, longitude: lon))
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?

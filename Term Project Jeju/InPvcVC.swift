@@ -18,8 +18,7 @@ class InPvcVC: UIViewController {
     }
     
     @IBAction func Good(_ sender: Any) {
-        print(GoodVC.posts.count)
-        if(GoodVC.posts.count == 0)
+        if(GoodMapVC.posts.count == 0)
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodLoadingVC") as! GoodLoadingVC
             self.navigationController!.pushViewController(vc, animated: true)
@@ -27,6 +26,32 @@ class InPvcVC: UIViewController {
         else
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodMapVC") as! GoodMapVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func Food(_ sender: Any) {
+        if(FoodMapVC.posts.count == 0)
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FoodLoadingVC") as! FoodLoadingVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FoodMapVC") as! FoodMapVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func Pharmacy(_ sender: Any) {
+        if(PharmacyMapVC.posts.count == 0)
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PharmacyLoadingVC") as! PharmacyLoadingVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PharmacyMapVC") as! PharmacyMapVC
             self.navigationController!.pushViewController(vc, animated: true)
         }
     }
