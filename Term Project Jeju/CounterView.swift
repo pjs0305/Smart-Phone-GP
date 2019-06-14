@@ -26,10 +26,7 @@ class CounterView: UIView {
     @IBInspectable var counter: Int = 0
     {
         didSet {
-                if counter <= constants.numberOfGlasses
-                {
-                    setNeedsDisplay()
-                }
+            setNeedsDisplay()
         }
     }
     
@@ -86,13 +83,20 @@ class CounterView: UIView {
     // value의 didSet에 의해서 변경을 감지하여 라벨을 변경
     @objc func updateValue(timer: Timer)
     {
+        var term : Int = Int(Double(endCount - counter) / 100.0)
+        
+        if term < 1
+        {
+            term = 1
+        }
+        
         if ( endCount < counter)
         {
-            counter -= 1
+            counter -= term
         }
         else
         {
-            counter += 1
+            counter += term
         }
         
         if (endCount == counter)

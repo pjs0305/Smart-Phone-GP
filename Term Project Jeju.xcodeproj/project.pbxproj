@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A117F3AD228F1FA7009822A0 /* MinbakVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117F3AC228F1FA7009822A0 /* MinbakVC.swift */; };
 		A118965D229827C100F80FCE /* MinbakMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118965C229827C100F80FCE /* MinbakMapVC.swift */; };
 		A118966022982D5E00F80FCE /* Minbak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118965F22982D5E00F80FCE /* Minbak.swift */; };
 		A118A1712299409700A38B40 /* GoodMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118A16F2299409700A38B40 /* GoodMapVC.swift */; };
@@ -42,10 +41,10 @@
 		A1E29C1522B3D8D300E954FC /* FoodLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29C1422B3D8D300E954FC /* FoodLoadingVC.swift */; };
 		A1E29C1722B3DF1300E954FC /* PharmacyLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29C1622B3DF1300E954FC /* PharmacyLoadingVC.swift */; };
 		A1E29C1922B3E13E00E954FC /* MinbakDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29C1822B3E13E00E954FC /* MinbakDetailTVC.swift */; };
+		A1E29C1B22B3E3CB00E954FC /* MinbakLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29C1A22B3E3CB00E954FC /* MinbakLoadingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A117F3AC228F1FA7009822A0 /* MinbakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinbakVC.swift; sourceTree = "<group>"; };
 		A118965C229827C100F80FCE /* MinbakMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinbakMapVC.swift; sourceTree = "<group>"; };
 		A118965F22982D5E00F80FCE /* Minbak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minbak.swift; sourceTree = "<group>"; };
 		A118A16F2299409700A38B40 /* GoodMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodMapVC.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		A1E29C1422B3D8D300E954FC /* FoodLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLoadingVC.swift; sourceTree = "<group>"; };
 		A1E29C1622B3DF1300E954FC /* PharmacyLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyLoadingVC.swift; sourceTree = "<group>"; };
 		A1E29C1822B3E13E00E954FC /* MinbakDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinbakDetailTVC.swift; sourceTree = "<group>"; };
+		A1E29C1A22B3E3CB00E954FC /* MinbakLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinbakLoadingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 		A118965E229827CA00F80FCE /* MinBak */ = {
 			isa = PBXGroup;
 			children = (
-				A117F3AC228F1FA7009822A0 /* MinbakVC.swift */,
+				A1E29C1A22B3E3CB00E954FC /* MinbakLoadingVC.swift */,
 				A118965C229827C100F80FCE /* MinbakMapVC.swift */,
 				A1E29C1822B3E13E00E954FC /* MinbakDetailTVC.swift */,
 				A118965F22982D5E00F80FCE /* Minbak.swift */,
@@ -295,13 +295,13 @@
 				A118A18222995B5200A38B40 /* PharmacyMapVC.swift in Sources */,
 				A1E29C0522B38B8A00E954FC /* AudioController.swift in Sources */,
 				A17D2E6122A2F16100CF03F7 /* GoodDetailTVC.swift in Sources */,
-				A117F3AD228F1FA7009822A0 /* MinbakVC.swift in Sources */,
 				A1E29C1922B3E13E00E954FC /* MinbakDetailTVC.swift in Sources */,
 				A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */,
 				A118965D229827C100F80FCE /* MinbakMapVC.swift in Sources */,
 				A1289FF122B22DA200923643 /* CounterView.swift in Sources */,
 				A118A1712299409700A38B40 /* GoodMapVC.swift in Sources */,
 				A1289FEF22B2194900923643 /* GoodLoadingVC.swift in Sources */,
+				A1E29C1B22B3E3CB00E954FC /* MinbakLoadingVC.swift in Sources */,
 				A1E29C1522B3D8D300E954FC /* FoodLoadingVC.swift in Sources */,
 				A1E29C1722B3DF1300E954FC /* PharmacyLoadingVC.swift in Sources */,
 				A1D8086E22A3F70E00B2C34E /* InPvcVC.swift in Sources */,

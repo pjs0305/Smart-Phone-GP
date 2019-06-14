@@ -8,18 +8,18 @@
 
 import UIKit
 
-class PharmacyDetailTVC: UITableViewController {
+class MinbakDetailTVC: UITableViewController {
 
-    let postsname : [String] = ["업소명", "주소", "연락처", "등록일", "비고"]
+    let postsname : [String] = ["주소", "업소명"]
     
-    var posts : [String] = ["", "", "", "", ""]
+    var posts : [String] = ["", ""]
     
-    var parameters : [String] = ["dataTitle", "adres", "telNo", "regDate", "remark"]
+    var parameters : [String] = ["addr", "name"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = posts[0] + " 상세 정보"
+        self.navigationItem.title = posts[1] + " 상세 정보"
     }
     
     func initialize(post : AnyObject!)

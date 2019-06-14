@@ -17,6 +17,19 @@ class InPvcVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func Minbak(_ sender: Any) {
+        if(MinbakMapVC.posts.count == 0)
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakLoadingVC") as! MinbakLoadingVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakMapVC") as! MinbakMapVC
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+    }
+    
     @IBAction func Good(_ sender: Any) {
         if(GoodMapVC.posts.count == 0)
         {

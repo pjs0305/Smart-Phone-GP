@@ -9,18 +9,26 @@
 import UIKit
 import MapKit
 
-class MinbakMapVC: UIViewController, MKMapViewDelegate {
+class MinbakMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var mapView : MKMapView!
+    static var posts = NSMutableArray()
     
+    let locationManager = CLLocationManager()
     var posts = NSMutableArray()
-    var initLocation : CLLocation!
+    var initlocation = CLLocationCoordinate2D()
     
-    let regionRadius : CLLocationDistance = 10000
+    let regionRadius : CLLocationDistance = 5000
     
-    func centerMapOnLocation(location: CLLocation)
+    @IBAction func userlocation(_ sender: Any) {
+        centerMapOnLocation(location : mapView.userLocation.coordinate)
+    }
+    
+    func centerMapOnLocation(location : CLLocationCoordinate2D)
     {
-        let coordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.showsUserLocation = true
+        
+        let coordinateRegion = MKCoordinateRegion.init(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         
         mapView.setRegion(coordinateRegion, animated: true)
     }
@@ -29,7 +37,7 @@ class MinbakMapVC: UIViewController, MKMapViewDelegate {
     
     func loadInitData()
     {
-        for post in posts
+        for post in MinbakMapVC.posts
         {
             let mapx = (post as AnyObject).value(forKey: "mapx") as! NSString as String
             let mapy = (post as AnyObject).value(forKey: "mapy") as! NSString as String
@@ -38,30 +46,82 @@ class MinbakMapVC: UIViewController, MKMapViewDelegate {
             let lat = (mapx as NSString).doubleValue
             let lon = (mapy as NSString).doubleValue
         
-            let minbak = Minbak(title: name, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            let minbak = Minbak(title: name, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
             
             items.append(minbak)
         }
         
     }
     
+    @IBAction func MoveNearFromMapLocation(_ sender: Any) {
+        let mapCenter = mapView.centerCoordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    @IBAction func MoveNearFromMyLocation(_ sender: Any) {
+        let mapCenter = mapView.userLocation.coordinate
+        
+        centerMapOnLocation(location: self.FindNearLocation(center: mapCenter))
+    }
+    
+    func FindNearLocation(center : CLLocationCoordinate2D) -> CLLocationCoordinate2D
+    {
+        var location : CLLocationCoordinate2D
+        var nearestlat : Double
+        var nearestlon : Double
+        
+        location = (items.first!.coordinate)
+        nearestlat = fabs(center.latitude - (items.first!.coordinate.latitude))
+        nearestlon = fabs(center.longitude - (items.first!.coordinate.longitude))
+        
+        for item in items
+        {
+            let distlat = fabs(center.latitude - item.coordinate.latitude)
+            let distlon = fabs(center.longitude - item.coordinate.longitude)
+            
+            if ( distlat + distlon < nearestlat + nearestlon)
+            {
+                location = item.coordinate
+                nearestlat = distlat
+                nearestlon = distlon
+            }
+        }
+        
+        return location
+    }
+    
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Minbak
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+        
+        switch control {
+        case let left where left == view.leftCalloutAccessoryView:
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+            break
+        case let right where right == view.rightCalloutAccessoryView:
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakDetailTVC") as! MinbakDetailTVC
+            vc.initialize(post: location.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+            break
+        default:
+            break
+        }
     }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        centerMapOnLocation(location: initLocation)
         
         mapView.delegate = self
-        
+        self.locationManager.requestAlwaysAuthorization()
         loadInitData()
+        
+        let la = (MinbakMapVC.posts.object(at: 0) as AnyObject).value(forKey: "mapx") as! NSString as String
+        let lo = (MinbakMapVC.posts.object(at: 0) as AnyObject).value(forKey: "mapy") as! NSString as String
+        let lat = (la as NSString).doubleValue
+        let lon = (lo as NSString).doubleValue
+        centerMapOnLocation(location: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        
         mapView.addAnnotations(items)
         // Do any additional setup after loading the view.
     }
@@ -91,6 +151,10 @@ class MinbakMapVC: UIViewController, MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x : -5, y : 5)
             view.rightCalloutAccessoryView = UIButton(type : .detailDisclosure)
+            
+            let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            leftButton.setImage(UIImage(named: "car"), for: .normal)
+            view.leftCalloutAccessoryView = leftButton
         }
         
         return view
