@@ -216,30 +216,39 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LD2-9o-50c">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4i-E9-il1">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Item" style="done" id="ofJ-k6-aco">
-                                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <connections>
-                                            <action selector="MoveNearFromMapLocation:" destination="hKH-TH-MvS" id="gN1-jF-rhJ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Item" id="61z-IS-bKj">
-                                        <connections>
-                                            <action selector="MoveNearFromMyLocation:" destination="hKH-TH-MvS" id="VYm-rP-sPy"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msz-uf-Pjr">
+                                <rect key="frame" x="16" y="595" width="63" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="2gb-vJ-uNS"/>
+                                    <constraint firstAttribute="width" constant="63" id="Pci-oA-kZS"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="maps"/>
+                                <connections>
+                                    <action selector="MoveNearFromMapLocation:" destination="hKH-TH-MvS" eventType="touchUpInside" id="aBa-1c-tat"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfB-SQ-n3j">
+                                <rect key="frame" x="314" y="577" width="45" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="16D-C4-FmY"/>
+                                    <constraint firstAttribute="height" constant="70" id="dpI-yx-xES"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="my"/>
+                                <connections>
+                                    <action selector="MoveNearFromMyLocation:" destination="hKH-TH-MvS" eventType="touchUpInside" id="864-qA-Ecf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fjD-yw-RsK" firstAttribute="bottom" secondItem="hfB-SQ-n3j" secondAttribute="bottom" constant="20" id="2ku-gO-K2l"/>
                             <constraint firstItem="LD2-9o-50c" firstAttribute="bottom" secondItem="fjD-yw-RsK" secondAttribute="bottom" id="3Ol-Yn-Z4F"/>
+                            <constraint firstItem="fjD-yw-RsK" firstAttribute="bottom" secondItem="Msz-uf-Pjr" secondAttribute="bottom" constant="20" id="KY0-Hm-YMH"/>
+                            <constraint firstItem="fjD-yw-RsK" firstAttribute="trailing" secondItem="hfB-SQ-n3j" secondAttribute="trailing" constant="16" id="Owc-FM-qnk"/>
                             <constraint firstItem="LD2-9o-50c" firstAttribute="leading" secondItem="fjD-yw-RsK" secondAttribute="leading" id="Z9l-QW-lwe"/>
                             <constraint firstItem="LD2-9o-50c" firstAttribute="top" secondItem="fjD-yw-RsK" secondAttribute="top" id="dCb-ZS-6vN"/>
                             <constraint firstItem="LD2-9o-50c" firstAttribute="trailing" secondItem="fjD-yw-RsK" secondAttribute="trailing" id="jUC-8O-5Y3"/>
+                            <constraint firstItem="Msz-uf-Pjr" firstAttribute="leading" secondItem="fjD-yw-RsK" secondAttribute="leading" constant="16" id="sge-Qu-5zB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fjD-yw-RsK"/>
                     </view>
@@ -319,32 +328,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EJR-NU-xxh">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EJR-NU-xxh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axE-4R-YpN">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="맵 위치 기준" id="3UM-XO-o6a">
-                                        <connections>
-                                            <action selector="MoveNearFromMapLocation:" destination="nDW-eD-5oM" id="Tk6-Xg-zxp"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="현재 내 위치 기준" id="h8e-1h-nSn">
-                                        <connections>
-                                            <action selector="MoveNearFromMyLocation:" destination="nDW-eD-5oM" id="Dkp-si-9Pb"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoJ-J0-BcM">
+                                <rect key="frame" x="16" y="595" width="63" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="IBc-x3-iNd"/>
+                                    <constraint firstAttribute="height" constant="52" id="vM3-Io-HJ7"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="maps"/>
+                                <connections>
+                                    <action selector="MoveNearFromMapLocation:" destination="nDW-eD-5oM" eventType="touchUpInside" id="pqx-HN-nEE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSo-67-4yy">
+                                <rect key="frame" x="314" y="577" width="45" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="fsQ-ib-Olv"/>
+                                    <constraint firstAttribute="height" constant="70" id="nth-tA-BNe"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="my"/>
+                                <connections>
+                                    <action selector="MoveNearFromMyLocation:" destination="nDW-eD-5oM" eventType="touchUpInside" id="Igt-gG-LM0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EJR-NU-xxh" firstAttribute="leading" secondItem="xfp-V2-ohA" secondAttribute="leading" id="1ch-D4-5Fv"/>
+                            <constraint firstItem="xfp-V2-ohA" firstAttribute="trailing" secondItem="rSo-67-4yy" secondAttribute="trailing" constant="16" id="7SL-0t-nI4"/>
+                            <constraint firstItem="xfp-V2-ohA" firstAttribute="bottom" secondItem="KoJ-J0-BcM" secondAttribute="bottom" constant="20" id="GxR-7a-nGF"/>
                             <constraint firstItem="EJR-NU-xxh" firstAttribute="top" secondItem="xfp-V2-ohA" secondAttribute="top" id="Luc-Ff-NwU"/>
                             <constraint firstItem="EJR-NU-xxh" firstAttribute="trailing" secondItem="xfp-V2-ohA" secondAttribute="trailing" id="mLL-t2-jW4"/>
+                            <constraint firstItem="xfp-V2-ohA" firstAttribute="bottom" secondItem="rSo-67-4yy" secondAttribute="bottom" constant="20" id="oNh-FL-Gmk"/>
                             <constraint firstItem="EJR-NU-xxh" firstAttribute="bottom" secondItem="xfp-V2-ohA" secondAttribute="bottom" id="pHL-1C-j02"/>
+                            <constraint firstItem="KoJ-J0-BcM" firstAttribute="leading" secondItem="xfp-V2-ohA" secondAttribute="leading" constant="16" id="xRT-De-BUw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xfp-V2-ohA"/>
                     </view>
@@ -368,7 +387,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZh-as-Xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="H5r-et-Cga" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4462" y="3023"/>
+            <point key="canvasLocation" x="4461.6000000000004" y="3022.9385307346329"/>
         </scene>
         <!--심야약국 지도-->
         <scene sceneID="xZJ-OX-WyN">
@@ -381,28 +400,38 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TiI-mG-RgO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oG0-uv-Rcr">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="맵 위치 기준" id="vED-wT-9uG">
-                                        <connections>
-                                            <action selector="MoveNearFromMapLocation:" destination="tsk-J2-5Jc" id="n7r-jn-cKU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="현재 내 위치 기준" id="aOR-sM-9Nm">
-                                        <connections>
-                                            <action selector="MoveNearFromMyLocation:" destination="tsk-J2-5Jc" id="yK4-xZ-wuo"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scd-32-FOX">
+                                <rect key="frame" x="16" y="595" width="63" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="ASt-Oz-xtL"/>
+                                    <constraint firstAttribute="width" constant="63" id="FVh-0u-Bvk"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="maps"/>
+                                <connections>
+                                    <action selector="MoveNearFromMapLocation:" destination="tsk-J2-5Jc" eventType="touchUpInside" id="s9q-F1-wYI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvp-mE-w3n">
+                                <rect key="frame" x="314" y="577" width="45" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="SD4-if-4BW"/>
+                                    <constraint firstAttribute="height" constant="70" id="bR8-bx-SRA"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="my"/>
+                                <connections>
+                                    <action selector="MoveNearFromMyLocation:" destination="tsk-J2-5Jc" eventType="touchUpInside" id="cDV-xo-Bh8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qSV-cl-gcH" firstAttribute="bottom" secondItem="dvp-mE-w3n" secondAttribute="bottom" constant="20" id="1ma-VO-IMc"/>
                             <constraint firstItem="TiI-mG-RgO" firstAttribute="trailing" secondItem="qSV-cl-gcH" secondAttribute="trailing" id="Bzl-qO-q3h"/>
+                            <constraint firstItem="scd-32-FOX" firstAttribute="leading" secondItem="qSV-cl-gcH" secondAttribute="leading" constant="16" id="CK6-98-ahb"/>
                             <constraint firstItem="TiI-mG-RgO" firstAttribute="leading" secondItem="qSV-cl-gcH" secondAttribute="leading" id="F3b-oK-gRB"/>
+                            <constraint firstItem="qSV-cl-gcH" firstAttribute="trailing" secondItem="dvp-mE-w3n" secondAttribute="trailing" constant="16" id="LEC-Dk-Bc1"/>
                             <constraint firstItem="TiI-mG-RgO" firstAttribute="top" secondItem="qSV-cl-gcH" secondAttribute="top" id="QVZ-Eg-Zu3"/>
+                            <constraint firstItem="qSV-cl-gcH" firstAttribute="bottom" secondItem="scd-32-FOX" secondAttribute="bottom" constant="20" id="eZt-2X-Jmw"/>
                             <constraint firstItem="TiI-mG-RgO" firstAttribute="bottom" secondItem="qSV-cl-gcH" secondAttribute="bottom" id="uU3-Gn-2aH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qSV-cl-gcH"/>
@@ -744,27 +773,36 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KCN-wc-FNr">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mI-tX-9Ja">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Item" style="done" id="YJb-Mk-Rt2">
-                                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <connections>
-                                            <action selector="MoveNearFromMapLocation:" destination="9kd-s4-mpe" id="vjx-WF-a61"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Item" id="eK6-L1-Xna">
-                                        <connections>
-                                            <action selector="MoveNearFromMyLocation:" destination="9kd-s4-mpe" id="8ih-co-Zda"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOs-f2-9SV">
+                                <rect key="frame" x="16" y="595" width="63" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="BP7-Pg-z4o"/>
+                                    <constraint firstAttribute="height" constant="52" id="TfE-PS-6cE"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="maps"/>
+                                <connections>
+                                    <action selector="MoveNearFromMapLocation:" destination="9kd-s4-mpe" eventType="touchUpInside" id="xsf-I2-UH7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrH-1J-36u">
+                                <rect key="frame" x="314" y="577" width="45" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="IyU-bV-h3A"/>
+                                    <constraint firstAttribute="height" constant="70" id="KgT-zF-Gi3"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="my"/>
+                                <connections>
+                                    <action selector="MoveNearFromMyLocation:" destination="9kd-s4-mpe" eventType="touchUpInside" id="wbM-ut-Ntb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nAy-e6-8ws" firstAttribute="bottom" secondItem="GOs-f2-9SV" secondAttribute="bottom" constant="20" id="0yX-pb-zDO"/>
                             <constraint firstItem="KCN-wc-FNr" firstAttribute="trailing" secondItem="nAy-e6-8ws" secondAttribute="trailing" id="2yi-Ub-5iD"/>
+                            <constraint firstItem="nAy-e6-8ws" firstAttribute="bottom" secondItem="qrH-1J-36u" secondAttribute="bottom" constant="20" id="7Ev-4A-gJd"/>
+                            <constraint firstItem="nAy-e6-8ws" firstAttribute="trailing" secondItem="qrH-1J-36u" secondAttribute="trailing" constant="16" id="9fu-HW-Xpw"/>
+                            <constraint firstItem="GOs-f2-9SV" firstAttribute="leading" secondItem="nAy-e6-8ws" secondAttribute="leading" constant="16" id="BZx-Vp-f9w"/>
                             <constraint firstItem="KCN-wc-FNr" firstAttribute="top" secondItem="nAy-e6-8ws" secondAttribute="top" id="MO4-DS-z8U"/>
                             <constraint firstItem="KCN-wc-FNr" firstAttribute="leading" secondItem="nAy-e6-8ws" secondAttribute="leading" id="k01-Uq-B9e"/>
                             <constraint firstItem="KCN-wc-FNr" firstAttribute="bottom" secondItem="nAy-e6-8ws" secondAttribute="bottom" id="wn2-f2-HgQ"/>
@@ -792,7 +830,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiO-7g-kHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wsI-zT-KMo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="3023"/>
+            <point key="canvasLocation" x="1440.8" y="3022.9385307346329"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tbj-Zf-5Fc">
@@ -939,6 +977,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="maps" width="256" height="256"/>
+        <image name="my" width="87.5" height="127.5"/>
         <image name="person" width="110.5" height="127"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@ class InPvcVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor(white: 1, alpha: 0)
         // Do any additional setup after loading the view.
     }
     
@@ -21,12 +22,12 @@ class InPvcVC: UIViewController {
         if(MinbakMapVC.posts.count == 0)
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakLoadingVC") as! MinbakLoadingVC
-            self.navigationController!.pushViewController(vc, animated: true)
+            self.navigationController!.pushViewController(vc, animated: false)
         }
         else
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakMapVC") as! MinbakMapVC
-            self.navigationController!.pushViewController(vc, animated: true)
+            self.navigationController!.pushViewController(vc, animated: false)
         }
     }
     

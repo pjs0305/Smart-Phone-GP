@@ -19,6 +19,7 @@ class MinbakDetailTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(white: 1, alpha: 0)
         self.navigationItem.title = posts[1] + " 상세 정보"
     }
     

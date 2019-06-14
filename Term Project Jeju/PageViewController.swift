@@ -77,6 +77,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         self.setViewControllers([GetVC(index: 0)], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
         
+        let background = UIImage(named: "돌하르방.jpg")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleToFill
+        imageView.clipsToBounds = false
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
+        
         super.viewDidLoad()
         
     }
