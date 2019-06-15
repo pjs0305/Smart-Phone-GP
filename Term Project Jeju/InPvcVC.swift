@@ -19,25 +19,37 @@ class InPvcVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if minbak != nil
+        {
         minbak.layer.cornerRadius = 10
         minbak.layer.masksToBounds = true
         minbak.layer.borderWidth = 5
         minbak.layer.borderColor = UIColor.black.cgColor
+        }
         
+        if good != nil
+        {
         good.layer.cornerRadius = 10
         good.layer.masksToBounds = true
         good.layer.borderWidth = 5
         good.layer.borderColor = UIColor.black.cgColor
+        }
         
+        if food != nil
+        {
         food.layer.cornerRadius = 10
         food.layer.masksToBounds = true
         food.layer.borderWidth = 5
         food.layer.borderColor = UIColor.black.cgColor
+        }
         
+        if phar != nil
+        {
         phar.layer.cornerRadius = 10
         phar.layer.masksToBounds = true
         phar.layer.borderWidth = 5
         phar.layer.borderColor = UIColor.black.cgColor
+        }
         
         self.view.backgroundColor = UIColor(white: 1, alpha: 0)
         // Do any additional setup after loading the view.

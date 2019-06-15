@@ -27,6 +27,14 @@
 		A17D2E6122A2F16100CF03F7 /* GoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */; };
 		A17D2E6B22A310DF00CF03F7 /* PharmacyDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */; };
 		A17D2E6D22A3110800CF03F7 /* FoodDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */; };
+		A1D5A7F222B4D07000F5F711 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1D5A7F122B4D07000F5F711 /* logo.jpg */; };
+		A1D5A7F422B4D4D100F5F711 /* LogoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5A7F322B4D4D100F5F711 /* LogoVC.swift */; };
+		A1D5A7F622B4DBBF00F5F711 /* MinbakDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5A7F522B4DBBF00F5F711 /* MinbakDetailTVCell.swift */; };
+		A1D5A7FA22B4E48000F5F711 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D5A7F922B4E48000F5F711 /* address.png */; };
+		A1D5A7FC22B4EAAD00F5F711 /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D5A7FB22B4EAAC00F5F711 /* name.png */; };
+		A1D5A7FE22B4EE9900F5F711 /* PharmacyDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5A7FD22B4EE9900F5F711 /* PharmacyDetailTVCell.swift */; };
+		A1D5A80022B4F15100F5F711 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D5A7FF22B4F15100F5F711 /* call.png */; };
+		A1D5A80222B4F1CF00F5F711 /* etc.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D5A80122B4F1CE00F5F711 /* etc.png */; };
 		A1D8086C22A3EAF800B2C34E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8086B22A3EAF800B2C34E /* PageViewController.swift */; };
 		A1D8086E22A3F70E00B2C34E /* InPvcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8086D22A3F70E00B2C34E /* InPvcVC.swift */; };
 		A1E29BF922B36F3400E954FC /* CounterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29BF822B36F3400E954FC /* CounterLabelView.swift */; };
@@ -70,6 +78,14 @@
 		A17D2E6022A2F16100CF03F7 /* GoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodDetailTVC.swift; sourceTree = "<group>"; };
 		A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyDetailTVC.swift; sourceTree = "<group>"; };
 		A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailTVC.swift; sourceTree = "<group>"; };
+		A1D5A7F122B4D07000F5F711 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
+		A1D5A7F322B4D4D100F5F711 /* LogoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoVC.swift; sourceTree = "<group>"; };
+		A1D5A7F522B4DBBF00F5F711 /* MinbakDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinbakDetailTVCell.swift; sourceTree = "<group>"; };
+		A1D5A7F922B4E48000F5F711 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = address.png; path = ../../../Downloads/address.png; sourceTree = "<group>"; };
+		A1D5A7FB22B4EAAC00F5F711 /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = "<group>"; };
+		A1D5A7FD22B4EE9900F5F711 /* PharmacyDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyDetailTVCell.swift; sourceTree = "<group>"; };
+		A1D5A7FF22B4F15100F5F711 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
+		A1D5A80122B4F1CE00F5F711 /* etc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etc.png; sourceTree = "<group>"; };
 		A1D8086B22A3EAF800B2C34E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		A1D8086D22A3F70E00B2C34E /* InPvcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPvcVC.swift; sourceTree = "<group>"; };
 		A1E29BF822B36F3400E954FC /* CounterLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterLabelView.swift; sourceTree = "<group>"; };
@@ -107,6 +123,7 @@
 				A1E29C1A22B3E3CB00E954FC /* MinbakLoadingVC.swift */,
 				A118965C229827C100F80FCE /* MinbakMapVC.swift */,
 				A1E29C1822B3E13E00E954FC /* MinbakDetailTVC.swift */,
+				A1D5A7F522B4DBBF00F5F711 /* MinbakDetailTVCell.swift */,
 				A118965F22982D5E00F80FCE /* Minbak.swift */,
 			);
 			path = MinBak;
@@ -146,8 +163,8 @@
 			children = (
 				A1E29C1422B3D8D300E954FC /* FoodLoadingVC.swift */,
 				A118A17D2299575600A38B40 /* FoodMapVc.swift */,
-				A118A17C2299575600A38B40 /* Food.swift */,
 				A17D2E6C22A3110800CF03F7 /* FoodDetailTVC.swift */,
+				A118A17C2299575600A38B40 /* Food.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -158,6 +175,7 @@
 				A1E29C1622B3DF1300E954FC /* PharmacyLoadingVC.swift */,
 				A118A18022995B5200A38B40 /* PharmacyMapVC.swift */,
 				A17D2E6A22A310DF00CF03F7 /* PharmacyDetailTVC.swift */,
+				A1D5A7FD22B4EE9900F5F711 /* PharmacyDetailTVCell.swift */,
 				A118A18122995B5200A38B40 /* Pharmacy.swift */,
 			);
 			path = Pharmacy;
@@ -182,6 +200,7 @@
 		A121D767228D214400A8081E /* Term Project Jeju */ = {
 			isa = PBXGroup;
 			children = (
+				A1D5A7F322B4D4D100F5F711 /* LogoVC.swift */,
 				A1D8086B22A3EAF800B2C34E /* PageViewController.swift */,
 				A1289FF022B22DA200923643 /* CounterView.swift */,
 				A1E29BF822B36F3400E954FC /* CounterLabelView.swift */,
@@ -202,9 +221,14 @@
 				A1240A7E22B406D300420EC9 /* banner3.png */,
 				A1E29C0F22B39DEB00E954FC /* toystone.png */,
 				A1E29C0E22B39DEA00E954FC /* toycitrus.png */,
+				A1D5A7FB22B4EAAC00F5F711 /* name.png */,
+				A1D5A7FF22B4F15100F5F711 /* call.png */,
+				A1D5A80122B4F1CE00F5F711 /* etc.png */,
 				A1E29BFC22B3817E00E954FC /* 말.png */,
 				A121D771228D214500A8081E /* LaunchScreen.storyboard */,
+				A1D5A7F922B4E48000F5F711 /* address.png */,
 				A121D774228D214500A8081E /* Info.plist */,
+				A1D5A7F122B4D07000F5F711 /* logo.jpg */,
 				A1E29BFA22B379F000E954FC /* 돌하르방.jpg */,
 				A1E29C0022B3895D00E954FC /* particle.png */,
 			);
@@ -270,17 +294,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E29C1122B39DEB00E954FC /* toystone.png in Resources */,
+				A1D5A7F222B4D07000F5F711 /* logo.jpg in Resources */,
 				A121D773228D214500A8081E /* LaunchScreen.storyboard in Resources */,
 				A1240A8022B406D400420EC9 /* banner3.png in Resources */,
 				A1240A7F22B406D400420EC9 /* banner2.png in Resources */,
 				A1240A7C22B4027B00420EC9 /* banner.png in Resources */,
 				A1E29BFD22B3817E00E954FC /* 말.png in Resources */,
+				A1D5A7FA22B4E48000F5F711 /* address.png in Resources */,
+				A1D5A80222B4F1CF00F5F711 /* etc.png in Resources */,
 				A1E29C0B22B38BA000E954FC /* ding.mp3 in Resources */,
 				A1E29C0922B38BA000E954FC /* win.mp3 in Resources */,
 				A121D770228D214500A8081E /* Assets.xcassets in Resources */,
+				A1D5A80022B4F15100F5F711 /* call.png in Resources */,
 				A1E29BFB22B379F000E954FC /* 돌하르방.jpg in Resources */,
 				A121D76E228D214400A8081E /* Main.storyboard in Resources */,
 				A1E29C0A22B38BA000E954FC /* wrong.m4a in Resources */,
+				A1D5A7FC22B4EAAD00F5F711 /* name.png in Resources */,
 				A1E29C0122B3895D00E954FC /* particle.png in Resources */,
 				A1E29C1022B39DEB00E954FC /* toycitrus.png in Resources */,
 			);
@@ -294,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E29C0D22B38D9500E954FC /* ExplodeView.swift in Sources */,
+				A1D5A7F422B4D4D100F5F711 /* LogoVC.swift in Sources */,
 				A118966022982D5E00F80FCE /* Minbak.swift in Sources */,
 				A118A18322995B5200A38B40 /* Pharmacy.swift in Sources */,
 				A17D2E6B22A310DF00CF03F7 /* PharmacyDetailTVC.swift in Sources */,
@@ -310,7 +340,9 @@
 				A1E29C1922B3E13E00E954FC /* MinbakDetailTVC.swift in Sources */,
 				A118A17F2299575600A38B40 /* FoodMapVc.swift in Sources */,
 				A118965D229827C100F80FCE /* MinbakMapVC.swift in Sources */,
+				A1D5A7F622B4DBBF00F5F711 /* MinbakDetailTVCell.swift in Sources */,
 				A1289FF122B22DA200923643 /* CounterView.swift in Sources */,
+				A1D5A7FE22B4EE9900F5F711 /* PharmacyDetailTVCell.swift in Sources */,
 				A118A1712299409700A38B40 /* GoodMapVC.swift in Sources */,
 				A1289FEF22B2194900923643 /* GoodLoadingVC.swift in Sources */,
 				A1E29C1B22B3E3CB00E954FC /* MinbakLoadingVC.swift in Sources */,

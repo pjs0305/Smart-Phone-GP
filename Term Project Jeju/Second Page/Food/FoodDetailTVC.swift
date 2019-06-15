@@ -20,7 +20,7 @@ class FoodDetailTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = posts[0] + " 상세 정보"
+        self.navigationItem.title = " 상세 정보"
     }
     
     func initialize(post : AnyObject!)

@@ -71,6 +71,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     override func viewDidLoad() {
+        
         self.pageCount = pageID.count
         
         self.dataSource = self

@@ -10,16 +10,16 @@ import UIKit
 
 class MinbakDetailTVC: UITableViewController {
 
-    let postsname : [String] = ["주소", "업소명"]
+    let postsname : [String] = ["업소명", "주소"]
     
     var posts : [String] = ["", ""]
     
-    var parameters : [String] = ["addr", "name"]
+    var parameters : [String] = ["name", "addr"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = posts[1] + " 상세 정보"
+        self.navigationItem.title = " 상세 정보"
     }
     
     func initialize(post : AnyObject!)
@@ -46,11 +46,23 @@ class MinbakDetailTVC: UITableViewController {
     
     override func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MinbakDetailTVCell", for: indexPath) as! MinbakDetailTVCell
         
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.textLabel?.text = postsname[indexPath.row]
-        cell.detailTextLabel?.text = posts[indexPath.row]
+        var image : UIImage!
+        
+        if postsname[indexPath.row] == "주소"
+        {
+            image = UIImage(named: "address.png")
+        }
+        else if postsname[indexPath.row] == "업소명"
+        {
+            image = UIImage(named: "name.png")
+        }
+        cell.myimage.image = image
+        
+        cell.mytitle.text = postsname[indexPath.row]
+        cell.mydetail.numberOfLines = 0
+        cell.mydetail.text = posts[indexPath.row]
         
         return cell // as UITableViewCell
     }

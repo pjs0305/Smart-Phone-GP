@@ -19,7 +19,7 @@ class PharmacyDetailTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = posts[0] + " 상세 정보"
+        self.navigationItem.title = " 상세 정보"
     }
     
     func initialize(post : AnyObject!)
@@ -46,11 +46,27 @@ class PharmacyDetailTVC: UITableViewController {
     
     override func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PharmacyDetailTVCell", for: indexPath) as! PharmacyDetailTVCell
         
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.textLabel?.text = postsname[indexPath.row]
-        cell.detailTextLabel?.text = posts[indexPath.row]
+        var image : UIImage!
+        
+        if postsname[indexPath.row] == "주소"
+        {
+            image = UIImage(named: "address.png")
+        }
+        else if postsname[indexPath.row] == "업소명"
+        {
+            image = UIImage(named: "name.png")
+        }
+        else if postsname[indexPath.row] == "연락처"
+        {
+            image = UIImage(named: "call.png")
+        }
+        cell.myimage.image = image
+        
+        cell.mytitle.text = postsname[indexPath.row]
+        cell.mydetail.numberOfLines = 0
+        cell.mydetail.text = posts[indexPath.row]
         
         return cell // as UITableViewCell
     }
