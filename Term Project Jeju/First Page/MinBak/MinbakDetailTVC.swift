@@ -60,7 +60,13 @@ class MinbakDetailTVC: UITableViewController {
         }
         cell.myimage.image = image
         
-        cell.mytitle.text = postsname[indexPath.row]
+        let text = postsname[indexPath.row]
+        
+        let textRange = NSMakeRange(0, text.count)
+        let attributedText = NSMutableAttributedString(string: text)
+        attributedText.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: textRange)
+        cell.mytitle.attributedText = attributedText
+        
         cell.mydetail.numberOfLines = 0
         cell.mydetail.text = posts[indexPath.row]
         
