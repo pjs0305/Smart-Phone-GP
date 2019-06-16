@@ -35,6 +35,30 @@ class MinbakMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegat
     
     var items : [Minbak] = []
     
+    static func GetPost(name : String) -> Minbak?
+    {
+        for post in MinbakMapVC.posts
+        {
+            if (post as AnyObject).value(forKey: "name") as! NSString as String != name
+            {
+                continue
+            }
+            
+            let mapx = (post as AnyObject).value(forKey: "mapx") as! NSString as String
+            let mapy = (post as AnyObject).value(forKey: "mapy") as! NSString as String
+            let addr = (post as AnyObject).value(forKey: "addr") as! NSString as String
+            let name = (post as AnyObject).value(forKey: "name") as! NSString as String
+            let lat = (mapx as NSString).doubleValue
+            let lon = (mapy as NSString).doubleValue
+            
+            let minbak = Minbak(title: name, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
+            
+            return minbak
+        }
+        
+        return nil
+    }
+    
     func loadInitData()
     {
         for post in MinbakMapVC.posts
@@ -94,6 +118,9 @@ class MinbakMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegat
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Minbak
+        
+        PageViewController.history.append(["민박집" : location.title!])
+        PageViewController.myTableView.reloadData()
         
         switch control {
         case let left where left == view.leftCalloutAccessoryView:

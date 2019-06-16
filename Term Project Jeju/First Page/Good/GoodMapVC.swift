@@ -52,6 +52,34 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     var items : [String:[Good]] = [:]
     var filtereditems = [String:[Good]] ()
     
+    static func GetPost(name : String) -> Good?
+    {
+        for post in GoodMapVC.posts
+        {
+            if (post as AnyObject).value(forKey: "dataTitle") as! NSString as String != name
+            {
+                continue
+            }
+            
+            let mapx = (post as AnyObject).value(forKey: "posy") as! NSString as String
+            let mapy = (post as AnyObject).value(forKey: "posx") as! NSString as String
+            let area = (post as AnyObject).value(forKey: "area") as! NSString as String
+            let adres = (post as AnyObject).value(forKey: "adres") as! NSString as String
+            let addr = area + " " + adres
+            let discipline = (post as AnyObject).value(forKey: "induty") as! NSString as String
+            
+            let dataTitle = (post as AnyObject).value(forKey: "dataTitle") as! NSString as String
+            let lat = (mapx as NSString).doubleValue
+            let lon = (mapy as NSString).doubleValue
+            
+            let good = Good(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post: post as AnyObject)
+            
+            return good
+        }
+        
+        return nil
+    }
+    
     func loadInitData()
     {
         for post in GoodMapVC.posts
@@ -147,6 +175,9 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Good
+        
+        PageViewController.history.append(["착한 업소" : location.title!])
+        PageViewController.myTableView.reloadData()
         
         switch control {
         case let left where left == view.leftCalloutAccessoryView:

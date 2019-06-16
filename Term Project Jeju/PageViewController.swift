@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource
+
+class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UITableViewDelegate, UITableViewDataSource
 {
     var pageViewController : UIPageViewController!
     
@@ -71,6 +72,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.pageCount = pageID.count
         
@@ -89,7 +91,88 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
         
-        super.viewDidLoad()
+        CreateTableview()
+    }
+    
+    
+    static var myTableView : UITableView!
+    static var history: [[String : String]] = []
+    
+    func CreateTableview()
+    {
+        let startx : CGFloat = self.view.frame.minX + 10
+        let starty : CGFloat = self.view.frame.height * 0.6
+        let displayWidth: CGFloat = self.view.frame.width - 20
+        let displayHeight: CGFloat = self.view.frame.height * 0.3
         
+        PageViewController.myTableView = UITableView(frame: CGRect(x: startx, y: starty, width: displayWidth, height: displayHeight))
+        
+        PageViewController.myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HistoryTVCell")
+        PageViewController.myTableView.dataSource = self
+        PageViewController.myTableView.delegate = self
+        PageViewController.myTableView.backgroundColor = UIColor(white: 1, alpha: 0)
+        self.view.addSubview(PageViewController.myTableView)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if PageViewController.history[indexPath.row].first?.key == "민박집"
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakDetailTVC") as! MinbakDetailTVC
+            let post = MinbakMapVC.GetPost(name: PageViewController.history[indexPath.row].first!.value)
+            vc.initialize(post: post?.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else if PageViewController.history[indexPath.row].first?.key == "착한 업소"
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodDetailTVC") as! GoodDetailTVC
+            let post = GoodMapVC.GetPost(name: PageViewController.history[indexPath.row].first!.value)
+            vc.initialize(post: post?.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else if PageViewController.history[indexPath.row].first?.key == "모범 음식점"
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FoodDetailTVC") as! FoodDetailTVC
+            let post = FoodMapVC.GetPost(name: PageViewController.history[indexPath.row].first!.value)
+            vc.initialize(post: post?.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        else if PageViewController.history[indexPath.row].first?.key == "심야 약국"
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PharmacyDetailTVC") as! PharmacyDetailTVC
+            let post = PharmacyMapVC.GetPost(name: PageViewController.history[indexPath.row].first!.value)
+            vc.initialize(post: post?.post)
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+        
+        print(PageViewController.history[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return PageViewController.history.count
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            PageViewController.history.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTVCell") as! UITableViewCell
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "HistoryTVCell")
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        
+        cell.textLabel?.text = PageViewController.history[indexPath.row].first?.key
+        cell.textLabel?.textColor = .black
+        cell.detailTextLabel?.text = PageViewController.history[indexPath.row].first?.value
+        cell.detailTextLabel?.textColor = .blue
+        
+        return cell
     }
 }

@@ -52,6 +52,32 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     var items : [String:[Food]] = [:]
     var filtereditems = [String:[Food]] ()
     
+    static func GetPost(name : String) -> Food?
+    {
+        for post in FoodMapVC.posts
+        {
+            if (post as AnyObject).value(forKey: "dataTitle") as! NSString as String != name
+            {
+                continue
+            }
+            
+            let addr = (post as AnyObject).value(forKey: "adres") as! NSString as String
+            let dataTitle = (post as AnyObject).value(forKey: "dataTitle") as! NSString as String
+            let discipline = (post as AnyObject).value(forKey: "bizcnd") as! NSString as String
+            
+            let la = (post as AnyObject).value(forKey: "la") as! NSString as String
+            let lo = (post as AnyObject).value(forKey: "lo") as! NSString as String
+            let lat = (la as NSString).doubleValue
+            let lon = (lo as NSString).doubleValue
+            
+            let food = Food(title: dataTitle, addr: addr, discipline: discipline, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
+            
+            return food
+        }
+        
+        return nil
+    }
+    
     func loadInitData()
     {
         for post in FoodMapVC.posts
@@ -145,6 +171,9 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Food
+        
+        PageViewController.history.append(["모범 음식점" : location.title!])
+        PageViewController.myTableView.reloadData()
         
         switch control {
         case let left where left == view.leftCalloutAccessoryView:

@@ -35,6 +35,30 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     var items : [Pharmacy] = []
     
+    static func GetPost(name : String) -> Pharmacy?
+    {
+        for post in PharmacyMapVC.posts
+        {
+            if (post as AnyObject).value(forKey: "dataTitle") as! NSString as String != name
+            {
+                continue
+            }
+            
+            let la = (post as AnyObject).value(forKey: "la") as! NSString as String
+            let lo = (post as AnyObject).value(forKey: "lo") as! NSString as String
+            let addr = (post as AnyObject).value(forKey: "adres") as! NSString as String
+            let dataTitle = (post as AnyObject).value(forKey: "dataTitle") as! NSString as String
+            let lat = (la as NSString).doubleValue
+            let lon = (lo as NSString).doubleValue
+            
+            let pharmacy = Pharmacy(title: dataTitle, addr: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon), post : post as AnyObject)
+            
+            return pharmacy
+        }
+        
+        return nil
+    }
+    
     func loadInitData()
     {
         for post in PharmacyMapVC.posts
@@ -94,6 +118,9 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     func mapView(_ mapView : MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl)
     {
         let location = view.annotation as! Pharmacy
+        
+        PageViewController.history.append(["심야 약국" : location.title!])
+        PageViewController.myTableView.reloadData()
         
         switch control {
         case let left where left == view.leftCalloutAccessoryView:

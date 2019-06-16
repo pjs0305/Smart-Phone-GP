@@ -14,8 +14,9 @@ class LogoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        let image = UIImage(named: "logo.jpg")
+        let image = UIImage(named: "logo.png")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -43,6 +44,7 @@ class LogoVC: UIViewController {
             UIView.setAnimationCurve(.easeInOut)
             self.navigationController?.pushViewController(vc, animated: true)
             UIView.setAnimationTransition(.curlUp, for: (self.navigationController?.view)!, cache: false)})
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         guard let viewControllers = self.navigationController?.viewControllers,
             let index = viewControllers.index(of: self) else { return }
