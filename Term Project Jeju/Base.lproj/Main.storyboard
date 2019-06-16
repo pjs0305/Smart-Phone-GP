@@ -29,11 +29,7 @@
         <!--Page View Controller-->
         <scene sceneID="UeT-H3-9nM">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Awd-4W-0s4" customClass="PageViewController" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="TGu-Iv-crD">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="2K8-Qt-khR"/>
-                    </navigationItem>
-                </pageViewController>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Awd-4W-0s4" customClass="PageViewController" customModule="Term_Project_Jeju" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ava-iQ-Fhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3532" y="-426"/>

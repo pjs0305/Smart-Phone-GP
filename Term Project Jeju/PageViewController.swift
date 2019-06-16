@@ -107,10 +107,26 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         PageViewController.myTableView = UITableView(frame: CGRect(x: startx, y: starty, width: displayWidth, height: displayHeight))
         
+        let background = UIImage(named: "banner3.png")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleToFill
+        imageView.clipsToBounds = false
+        imageView.image = background
+        imageView.center = view.center
+        imageView.layer.zPosition = -100
+        
         PageViewController.myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HistoryTVCell")
         PageViewController.myTableView.dataSource = self
         PageViewController.myTableView.delegate = self
         PageViewController.myTableView.backgroundColor = UIColor(white: 1, alpha: 0)
+        PageViewController.myTableView.layer.cornerRadius = 10
+        PageViewController.myTableView.layer.masksToBounds = true
+        PageViewController.myTableView.layer.borderWidth = 2
+        PageViewController.myTableView.layer.borderColor = UIColor.black.cgColor
+        PageViewController.myTableView.backgroundView = imageView
+        
         self.view.addSubview(PageViewController.myTableView)
     }
     
