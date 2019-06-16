@@ -176,15 +176,15 @@ class GoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     {
         let location = view.annotation as! Good
         
-        PageViewController.history.append(["착한 업소" : location.title!])
-        PageViewController.myTableView.reloadData()
-        
         switch control {
         case let left where left == view.leftCalloutAccessoryView:
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
             break
         case let right where right == view.rightCalloutAccessoryView:
+            PageViewController.history.append(["착한 업소" : location.title!])
+            PageViewController.myTableView.reloadData()
+            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoodDetailTVC") as! GoodDetailTVC
             vc.initialize(post: location.post)
             self.navigationController!.pushViewController(vc, animated: true)

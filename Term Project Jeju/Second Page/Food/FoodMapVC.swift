@@ -172,15 +172,15 @@ class FoodMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate 
     {
         let location = view.annotation as! Food
         
-        PageViewController.history.append(["모범 음식점" : location.title!])
-        PageViewController.myTableView.reloadData()
-        
         switch control {
         case let left where left == view.leftCalloutAccessoryView:
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
             break
         case let right where right == view.rightCalloutAccessoryView:
+            PageViewController.history.append(["모범 음식점" : location.title!])
+            PageViewController.myTableView.reloadData()
+            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FoodDetailTVC") as! FoodDetailTVC
             vc.initialize(post: location.post)
             self.navigationController!.pushViewController(vc, animated: true)

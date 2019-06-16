@@ -119,15 +119,15 @@ class MinbakMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegat
     {
         let location = view.annotation as! Minbak
         
-        PageViewController.history.append(["민박집" : location.title!])
-        PageViewController.myTableView.reloadData()
-        
         switch control {
         case let left where left == view.leftCalloutAccessoryView:
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
             break
         case let right where right == view.rightCalloutAccessoryView:
+            PageViewController.history.append(["민박집" : location.title!])
+            PageViewController.myTableView.reloadData()
+            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MinbakDetailTVC") as! MinbakDetailTVC
             vc.initialize(post: location.post)
             self.navigationController!.pushViewController(vc, animated: true)

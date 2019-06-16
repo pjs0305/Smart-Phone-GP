@@ -40,6 +40,7 @@ class Minbak : NSObject, MKAnnotation
     // info button을 누르면 MKMapItem을 오픈하게 됨
     func mapItem() -> MKMapItem
     {
+        
         let addressDict = [CNPostalAddressStreetKey: self.subtitle!]
         let placemark = MKPlacemark(coordinate: self.coordinate, addressDictionary: addressDict)
         let mapItem = MKMapItem(placemark: placemark)

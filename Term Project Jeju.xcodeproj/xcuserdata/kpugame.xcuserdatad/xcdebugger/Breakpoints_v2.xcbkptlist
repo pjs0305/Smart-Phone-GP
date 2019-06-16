@@ -76,7 +76,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/First Page/Good/GoodMapVC.swift"
-            timestampString = "582361573.569978"
+            timestampString = "582394016.035971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "232"
@@ -108,7 +108,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/First Page/Good/GoodMapVC.swift"
-            timestampString = "582361573.570105"
+            timestampString = "582394016.036119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -252,7 +252,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/First Page/MinBak/MinbakDetailTVC.swift"
-            timestampString = "582361397.636193"
+            timestampString = "582394016.036307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -268,13 +268,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.570609"
+            timestampString = "582393430.459484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "CreateTableview()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -284,13 +284,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.571137"
+            timestampString = "582393430.459581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "183"
             endingLineNumber = "183"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -300,29 +300,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.5715539"
+            timestampString = "582393430.459626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "numberOfSections(in:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Term Project Jeju/First Page/MinBak/MinbakMapVC.swift"
-            timestampString = "582361573.571936"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -332,13 +316,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.5719939"
+            timestampString = "582393430.4596879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -348,13 +332,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.572299"
+            timestampString = "582393430.459728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
             endingLineNumber = "139"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -364,7 +348,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/First Page/MinBak/MinbakMapVC.swift"
-            timestampString = "582361573.572587"
+            timestampString = "582394016.036482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -380,13 +364,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.5726399"
+            timestampString = "582393430.459776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -396,13 +380,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/PageViewController.swift"
-            timestampString = "582361573.572912"
+            timestampString = "582393430.459812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
             endingLineNumber = "144"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -412,7 +396,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Term Project Jeju/First Page/MinBak/MinbakDetailTVC.swift"
-            timestampString = "582361397.638576"
+            timestampString = "582394016.03658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"

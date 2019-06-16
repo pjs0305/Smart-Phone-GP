@@ -119,15 +119,15 @@ class PharmacyMapVC: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     {
         let location = view.annotation as! Pharmacy
         
-        PageViewController.history.append(["심야 약국" : location.title!])
-        PageViewController.myTableView.reloadData()
-        
         switch control {
         case let left where left == view.leftCalloutAccessoryView:
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
             break
         case let right where right == view.rightCalloutAccessoryView:
+            PageViewController.history.append(["심야 약국" : location.title!])
+            PageViewController.myTableView.reloadData()
+            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PharmacyDetailTVC") as! PharmacyDetailTVC
             vc.initialize(post: location.post)
             self.navigationController!.pushViewController(vc, animated: true)
